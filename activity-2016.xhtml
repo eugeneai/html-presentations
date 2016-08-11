@@ -7,16 +7,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 ]>
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-	      <title>&PRESTITLE;</title>
-	      <meta charset="utf-8"/>
-	      <meta name="viewport" content="width=792, user-scalable=no"/>
-	      <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-	      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	      <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
+        <title>&PRESTITLE;</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=792, user-scalable=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
     </head>
     <body class="shower list">
-	      <header class="caption">
-		        <h1>&PRESTITLE;</h1>
+        <header class="caption">
+            <h1>&PRESTITLE;</h1>
             <p>
                 к.т.н. Черкашин Е.А., ИДСТУ СО РАН
             </p>
@@ -24,47 +24,48 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 Презентация подготовлена при помощи системы
                 <a href="https://github.com/shower/shower">Shower</a>
                 (<a href="https://github.com/shower/shower/wiki">Страница
-                  Wiki</a>).
+                    Wiki</a>).
             </p>
-	      </header>
-	      <section class="slide" id="cover">
-	          <h2>&PRESTITLE;</h2>
+        </header>
+        <section class="slide" id="cover">
+            <h2>&PRESTITLE;</h2>
             <p class="center">
-                в контексте реализации компетентностного подхода <br/>в учебном процессе
+                в описании и обработке частичноструктурированных данных
             </p>
-		        <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
-		        <p class="place b r">составил
+            <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
+            <p class="place b r">
                 к.т.н. <a href="mailto:eugeneai@irnok.net">
                 Черкашин Е.А.
-                </a> (ИДСТУ СО РАН)<br/>
-                по научным работам <br/>
-                проректора ИГУ д-р пед. наук проф. Рябчикова В.В.
+                </a><br/>
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35">
+                    Комплексных информационных систем</a><br/>
+                ИДСТУ СО РАН
             </p>
-		        <!-- <img src="pictures/cover.jpg" alt=""> -->
-		        <!--
-			           To apply styles to the certain slides
-			           set slide ID to get needed elements
-			         -->
-		        <style>
+            <!-- <img src="pictures/cover.jpg" alt=""> -->
+            <!--
+                 To apply styles to the certain slides
+                 set slide ID to get needed elements
+               -->
+            <style>
              #cover {
                  background-color: black;
              }
-		         #cover h2 {
-				         margin:30px 0 0;
-				         color:#fff;
-				         text-align:center;
-				         font-size:70px;
-		         }
-		         #cover p {
-				         margin:10px 0 0;
-				         text-align:right;
-				         color:#fff;
-				         font-style:italic;
-				         font-size:20px;
-		         }
-		         #cover p a {
-			           color:#fff;
-		         }
+             #cover h2 {
+                 margin:30px 0 0;
+                 color:#fff;
+                 text-align:center;
+                 font-size:70px;
+             }
+             #cover p {
+                 margin:10px 0 0;
+                 text-align:right;
+                 color:#fff;
+                 font-style:italic;
+                 font-size:20px;
+             }
+             #cover p a {
+                 color:#fff;
+             }
              #cover p.center {
                  text-align:center;
                  font-style:normal;
@@ -72,10 +73,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
              #cover p.r {
                  margin-right:50px;
              }
-		        </style>
-	      </section>
-	      <section class="slide">
-	          <h2>Компетентностный подход</h2>
+            </style>
+        </section>
+        <section class="slide">
+            <h2>Компетентностный подход</h2>
             <strong>Новые требования к результатам образования:</strong>
             <ul>
                 <li>совершенствование <i>содержания</i>;</li>
@@ -84,11 +85,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <li>реализация новых форм контроля (тестирование);</li>
                 <li>контроль над осуществлением процесса внедрения.</li>
             </ul>
-
-	          <p class="note">Информацию, передаваемую обучающемуся, в
-	              образовательном процессе в
-	              педагогике понято называть <i>содержанием</i>.</p>
-	      </section>
+            <p class="note">Информацию, передаваемую обучающемуся, в
+                образовательном процессе в
+                педагогике понято называть <i>содержанием</i>.</p>
+        </section>
         <section class="slide">
             <h2>Компетентностный подход</h2>
             <ul>
@@ -105,20 +105,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <section class="slide">
             <h2>Компетентностный подход</h2>
             <ul>
-              <li> подход, при котором результаты образования признаются
-                значимыми за пределами системы
-                образования. <strong>Образовательный результат</strong> в контексте
-                Болонского процесса должен быть
-                представлен <strong>профессиональной подготовленностью
-                выпускника к рынку труда</strong>:</li>
-              <li>использование совокупности <i>знаний</i>, <i>умений</i>,
-                <i>компетенций</i>, а также <i>личностных
-                  характеристик</i>
-                для успешного роста выпускников вузов в
-              выбранной профессии и для расширения перспектив их
-                трудоустройства, в чем заинтересованы как сами
-                выпускники, так и общество, экономика в целом и
-                работодатели, в частности.</li>
+                <li> подход, при котором результаты образования признаются
+                    значимыми за пределами системы
+                    образования. <strong>Образовательный результат</strong> в контексте
+                    Болонского процесса должен быть
+                    представлен <strong>профессиональной подготовленностью
+                    выпускника к рынку труда</strong>:</li>
+                <li>использование совокупности <i>знаний</i>, <i>умений</i>,
+                    <i>компетенций</i>, а также <i>личностных
+                        характеристик</i>
+                    для успешного роста выпускников вузов в
+                    выбранной профессии и для расширения перспектив их
+                    трудоустройства, в чем заинтересованы как сами
+                    выпускники, так и общество, экономика в целом и
+                    работодатели, в частности.</li>
             </ul>
         </section>
         <section class="slide">
@@ -136,7 +136,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 владение новой информацией для успешного
                 применения этих знаний в конкретных условиях,
                 т.е. обладание оперативным и мобильным знанием.</p>
-
         </section>
         <section class="slide">
             <h2>Организация обучения</h2>
@@ -146,10 +145,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <h2>В системе образования</h2>
             выделяют четыре линии реализации компетентностного подхода в образовании, направленные на формирование:
             <ul>
-              <li>ключевых компетенций;</li>
-              <li>обобщенных предметных умений;</li>
-              <li>прикладных предметных умений:</li>
-              <li>жизненных навыков.</li>
+                <li>ключевых компетенций;</li>
+                <li>обобщенных предметных умений;</li>
+                <li>прикладных предметных умений:</li>
+                <li>жизненных навыков.</li>
             </ul>
         </section>
         <section class="slide">
@@ -170,7 +169,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Обновление содержания образования</h2>
-            <p>овладения "жизненными навыками", под которыми понимается разнообразный набор простых умений, которыми современные люди пользуются и в жизни, и на работе. К ним относятся, например, умение считать деньги, составлять и оформлять простые документы. Сюда же относятся и занятия по подготовке к чрезвычайным ситуациям, и подготовка грамотных потребителей, и элементарная компьютерная грамотность. </p>
+            <p>овладения «жизненными навыками», под которыми понимается разнообразный набор простых умений, которыми современные люди пользуются и в жизни, и на работе. К ним относятся, например, умение считать деньги, составлять и оформлять простые документы. Сюда же относятся и занятия по подготовке к чрезвычайным ситуациям, и подготовка грамотных потребителей, и элементарная компьютерная грамотность. </p>
         </section>
         <section class="slide">
             <h2>Усиление прикладного, прагматического
@@ -178,7 +177,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <p>Решает вопрос о том, какими результатами образования
                 выпускник  сможет воспользоваться после окончания курса
                 обучения.</p>
-            <p class='note'>... для обеспечения "отдаленного эффекта" образования все, что изучается, должно быть использовано, включено в процесс употребления. </p>
+            <p class='note'>... для обеспечения «отдаленного эффекта» образования все, что изучается, должно быть использовано, включено в процесс употребления. </p>
         </section>
         <section class="slide">
             <h2>Система высшего профессионального образования</h2>
@@ -196,8 +195,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             пространстве, начиная с межличностных контактов субъектов
             обучения и заканчивая общими процессами, происходящими в
             мировой образовательной системе. <br/>
-
-            &nbsp;&nbsp;&nbsp;В интерактивном обучении школьники и студенты выступают не
+               В интерактивном обучении школьники и студенты выступают не
             пассивными «обучаемыми», а полноправными участниками, их
             опыт здесь не менее важен, чем опыт преподавателя, который
             не дает готовых знаний, а побуждает к самостоятельному
@@ -215,9 +213,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Полемическое взаимодействие</h2>
-
             Благодаря <strong>ПВ</strong> на занятии объективно создается ситуация, требующая от обучающихся четкого обозначения собственной <i>смысловой позиции</i> по отношению к <i>обсуждаемой проблеме</i>. Ситуация полемического взаимодействия препятствует растворению индивидуального мышления в общем мнении, раскрепощает студенческую аудиторию, ослабляет давление авторитета преподавателя и <strong>стимулирует намерение обучающегося иметь и защищать свою собственную смысловую позицию</strong>.
-
         </section>
         <section class="slide" id="Senses">
             <h2>Смысловые позиции</h2>
@@ -232,14 +228,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </ol>
             <img src="pictures/polemics-base.svg" alt=""
                  class="place b r" />
-
             <style>
              #Senses img.place.r {
                  margin-right:50px;
                  margin-bottom:50px;
              }
             </style>
-
         </section>
         <!--
              <section class="slide"><div>
@@ -300,14 +294,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </ul>
             <img src="pictures/polemics-sys-args.svg" alt=""
                  class="place b r" />
-
             <style>
              #SysArgs img.place.r {
                  margin-right:50px;
                  margin-bottom:50px;
              }
             </style>
-
         </section>
         <section class="slide">
             <h2>Тезис</h2>
@@ -329,7 +321,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             - поддержка тезисов субъекта, она содержит суждения,
             используемые для доказательства своих тезисов и
             опровержения точек зрения оппонентов.<br/>
-
             <strong>Существенное влияние</strong> на <i>отбор, восприятие</i> аргументов
             оказывают менталитет аргументатора, образовательная и
             социокультурная среда и другие факторы. При
@@ -344,7 +335,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             аргументами, она основывается на использовании различных
             умозаключений: дедуктивных, индуктивных, по аналогии.
             <br/>
-
             <p> ... важную роль играют красноречие,
                 эмоциональность, авторитет аргументатора, апелляция к чувствам
                 слушателей. Наиболее весомой является аргументация, в которой
@@ -406,28 +396,24 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             ... действует на этапе личностного и профессионального становления,
             развития ценностных ориентаций.
             <br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Любое мнение о предмете тождественным другому, что
+                 Любое мнение о предмете тождественным другому, что
             иногда приводит к разрушению индиви-<br />дуального
-            и "дает право" на <br />безграмотное суждение <br />
+            и «дает право» на <br />безграмотное суждение <br />
             о любом явлении <br /> и предмете.
-
             <img src="pictures/polemics-plu-identity.svg" alt=""
                  class="place b r" />
-
             <style>
              #PluIdent img.place.r {
                  margin-right:50px;
                  margin-bottom:50px;
              }
             </style>
-
         </section>
         <section class="slide" id="Reflex2">
             <h2>Рефлексия</h2>
             ... включает в себя различные <br /> процессы самопознания
             относительно <br /> деятельности, общения, собственной <br /> личности и
             процесса мышления, <br /> в ПВ сочетается с <br /> плюрализмом.
-
             <img src="pictures/polemics-reflection.svg" alt=""
                  class="place b r" />
             <style>
@@ -436,7 +422,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                  margin-bottom:20px;
              }
             </style>
-
         </section>
         <section class="slide">
             <h2>Виды рефлексии</h2>
@@ -475,14 +460,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </ul>
             <img src="pictures/polemics-decentration.svg" alt=""
                  class="place b r" />
-
             <style>
              #Decent img.place.r {
                  margin-right:50px;
                  margin-bottom:50px;
              }
             </style>
-
         </section>
         <section class="slide">
             <h2>Образовательный материал</h2>
@@ -542,7 +525,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </ul>
             ...следует акцентировать внимание обучающихся уже на начальном этапе организации полемического взаимодействия...
         </section>
-	      <section class="slide">
+        <section class="slide">
             <h2>Заключение</h2>
             Полемическое взаимодействие важно
             <ol>
@@ -550,7 +533,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <li>в компетентностном контексте современного образования.</li>
             </ol>
         </section>
-	      <section class="slide">
+        <section class="slide">
             <h2>Экзистенциально-гуманистический контекст ПВ</h2>
             <ol>
                 <li>Личностно-ориентированный подход (почти синоним).</li>
@@ -559,7 +542,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <li>и ответственность за этот выбор.</li>
             </ol>
         </section>
-	      <section class="slide"><div>
+        <section class="slide"><div>
             <h2>Компетентностный контекст ПВ</h2>
             <ol>
                 <li>Выработка навыков продуктивного взаимодействия.</li>
@@ -569,17 +552,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <li>Форма усвоения материала предметных умений.</li>
             </ol>
         </div></section>
-	      <section class="slide shout">
+        <section class="slide shout">
             <h2>Спасибо за внимание!<br/> Ваши вопросы.</h2>
-	      </section>
-	      <p class="badge"><a href="https://github.com/eugeneai/html-presentations">Fork me on Github</a></p>
-	      <!--
-		         To hide progress bar from entire presentation
-		         just remove “progress” element.
-		       -->
-	      <div class="progress"></div>
-	      <script src="node_modules/shower-core/shower.min.js" type="text/javascript"/>
-	      <!-- Copyright © 2016 Evgeny Cherkashin, ISDCT SB RAS. -->
-	      <!-- Photos by ..... -->
+        </section>
+        <p class="badge"><a href="https://github.com/eugeneai/html-presentations">Fork me on Github</a></p>
+        <!--
+             To hide progress bar from entire presentation
+             just remove “progress” element.
+           -->
+        <div class="progress"></div>
+        <script src="node_modules/shower-core/shower.min.js" type="text/javascript"/>
+        <!-- Copyright © 2016 Evgeny Cherkashin, ISDCT SB RAS. -->
+        <!-- Photos by ..... -->
     </body>
 </html>
