@@ -28,6 +28,48 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
              padding-right: 13px;
              text-decoration: bold !important;
          }
+         .black {
+             background-color: black;
+         }
+         .black h2 {
+             color:#fff;
+         }
+         .cover h2 {
+             margin:30px 0 0;
+             text-align:center;
+             font-size:70px;
+         }
+         .black p {
+             color:#fff;
+         }
+         .cover p {
+             margin:10px 0 0;
+             text-align:right;
+             font-style:italic;
+             font-size:20px;
+         }
+         .black p a {
+             color:#fff;
+         }
+         .black p.center {
+             text-align:center;
+             font-style:normal;
+         }
+         .black p.r {
+             margin-right:50px;
+         }
+         .img50 {
+             width: 50%;
+             height: auto;
+         }
+         .img75 {
+             width: 75%;
+             height: auto;
+         }
+         .img60 {
+             width: 60%;
+             height: auto;
+         }
         </style>
     </head>
     <body class="shower list">
@@ -43,7 +85,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     Wiki</a>).
             </p>
         </header>
-        <section class="slide" id="cover">
+        <section class="slide black" id="cover">
             <h2>&PRESTITLE;</h2>
             <p class="center">
                 в описании и обработке частичноструктурированных данных
@@ -62,34 +104,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                  To apply styles to the certain slides
                  set slide ID to get needed elements
                -->
-            <style>
-             #cover {
-                 background-color: black;
-             }
-             #cover h2 {
-                 margin:30px 0 0;
-                 color:#fff;
-                 text-align:center;
-                 font-size:70px;
-             }
-             #cover p {
-                 margin:10px 0 0;
-                 text-align:right;
-                 color:#fff;
-                 font-style:italic;
-                 font-size:20px;
-             }
-             #cover p a {
-                 color:#fff;
-             }
-             #cover p.center {
-                 text-align:center;
-                 font-style:normal;
-             }
-             #cover p.r {
-                 margin-right:50px;
-             }
-            </style>
         </section>
         <section class="slide">
             <h2>Содержание доклада</h2>
@@ -108,9 +122,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </ol>
             <!-- <p class="note">Комментарий.</p> -->
         </section>
-        <section class="slide" id="complex">
+        <section class="slide black" id="complex">
             <h2>Информационная система как система-комплекс</h2>
-
+            <img src="pictures/MDA-hierarchy-whole.svg" alt=""
+                 class="place b r img60" />
             <p class='note'><i>Условий</i>=соответствующей <i>среды</i></p>
         </section>
         <section class="slide">
