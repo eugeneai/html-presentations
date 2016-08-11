@@ -13,6 +13,22 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
+        <style>
+         a, a.slide, u {
+             text-decoration: bold !important;
+         }
+         a.internal:after  {
+             content:"&#10140;";
+             text-decoration: bold !important;
+         }
+         a.external {
+             background-position: center right;
+             background-repeat: no-repeat;
+             background-image: linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%3E%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%20d%3D%22M1.5%204.518h5.982V10.5H1.5z%22%2F%3E%3Cpath%20d%3D%22M5.765%201H11v5.39L9.427%207.937l-1.31-1.31L5.393%209.35l-2.69-2.688%202.81-2.808L4.2%202.544z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M9.995%202.004l.022%204.885L8.2%205.07%205.32%207.95%204.09%206.723l2.882-2.88-1.85-1.852z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E);
+             padding-right: 13px;
+             text-decoration: bold !important;
+         }
+        </style>
     </head>
     <body class="shower list">
         <header class="caption">
@@ -37,7 +53,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 к.т.н. <a href="mailto:eugeneai@irnok.net">
                 Черкашин Е.А.
                 </a><br/>
-                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35">
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35" class="external" >
                     Комплексных информационных систем</a><br/>
                 ИДСТУ СО РАН
             </p>
@@ -76,30 +92,25 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </style>
         </section>
         <section class="slide">
-            <h2>Компетентностный подход</h2>
-            <strong>Новые требования к результатам образования:</strong>
-            <ul>
-                <li>совершенствование <i>содержания</i>;</li>
-                <li><strong>новые методики и технологии
-                    образовательной деятельности</strong>;</li>
-                <li>реализация новых форм контроля (тестирование);</li>
-                <li>контроль над осуществлением процесса внедрения.</li>
-            </ul>
-            <p class="note">Информацию, передаваемую обучающемуся, в
-                образовательном процессе в
-                педагогике понято называть <i>содержанием</i>.</p>
+            <h2>Содержание доклада</h2>
+            <ol>
+                <li>Информационная система как система-комплекс <a href="#complex" class="internal"></a></li>
+                <li>Стандарты в проектировании онтологий <a href="#ontoproj" class="internal"></a></li>
+                <li><strong>Сервисы на основе обработки онтологиий</strong></li>
+                <ul>
+                    <li>Сервер онтологий <a href="#" class="internal"></a></li>
+                    <li>Аннотация документов <a href="#annotation" class="internal"></a></li>
+                    <li>Естественно-языковой доступ к БД разломов <a href="#faults" class="internal"></a></li>
+                </ul>
+                <li>Семантическая разметка документа <a href="#studprogs" class="internal"></a></li>
+                <li>Обработка GRID <a href="#plastics" class="internal"></a></li>
+                <!-- <li>Другое <a href="#" class="internal"></a></li> -->
+            </ol>
+            <!-- <p class="note">Комментарий.</p> -->
         </section>
-        <section class="slide">
-            <h2>Компетентностный подход</h2>
-            <ul>
-                <li><strong>... к подготовке кадров</strong> –
-                    совокупность теоретических положений и
-                    организационно-педагогических мер (<i>образовательная концепция</i>),
-                    направленных на обеспечение <i>условий</i> для формирования профессиональной
-                    компетентности  будущего специалиста.</li>
-                <li>направленность ... на конечный результат – становление профессиональной
-                    компетентности будущего специалиста.</li>
-            </ul>
+        <section class="slide" id="complex">
+            <h2>Информационная система как система-комплекс</h2>
+
             <p class='note'><i>Условий</i>=соответствующей <i>среды</i></p>
         </section>
         <section class="slide">
