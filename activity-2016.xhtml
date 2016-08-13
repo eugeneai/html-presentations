@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html
-PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"
 [
 <!ENTITY PRESTITLE "Технологии онтологического моделирования">
 ]>
+
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>&PRESTITLE;</title>
@@ -12,8 +13,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <meta name="viewport" content="width=792, user-scalable=no"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" async="async"
+                src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
         <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
         <link rel="stylesheet" href="eugeneai/local.css"/>
+        <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({
+             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+         });
+        </script>
     </head>
     <body class="shower list">
         <header class="caption">
@@ -69,6 +78,56 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Категории, функторы</h2>
+            <p>
+                `x=(-b +- sqrt(b^2 – 4ac))/(2a)`
+            </p>
+            <p>
+                The area of a circle is
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>&#x03C0;<!-- π --></mi>
+                    <mo>&#x2062;<!-- &InvisibleTimes; --></mo>
+                    <msup>
+                        <mi>r</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>.
+            </p>
+            <p>LaTeX Example
+                \(\pi+psi\) and $\forall x p\to k$.
+                \[\frac{1}{\sqrt{-1}}\]
+            </p>
+            <p>
+                При условии, что
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>a</mi><mo>&#x2260;</mo><mn>0</mn>
+                </math>,
+                существует два решения
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+                    <mo>+</mo> <mi>b</mi><mi>x</mi>
+                    <mo>+</mo> <mi>c</mi> <mo>=</mo> <mn>0</mn>
+                </math>,
+                которые вычисляются следующим образом:
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    <mi>x</mi> <mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>&#x2212;</mo>
+                                <mi>b</mi>
+                                <mo>&#x00B1;</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>&#x2212;</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                    <mtext>.</mtext>
+                </math>
+            </p>
             <img src="pictures/cats-and-functors.svg" alt=""
                  class="place m c img75" />
         </section>
