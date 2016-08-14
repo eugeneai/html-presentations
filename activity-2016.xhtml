@@ -27,6 +27,21 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </script>
         <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
         <link rel="stylesheet" href="eugeneai/local.css"/>
+        <style>
+         .differ {
+             color:blue;
+         }
+         p.description {
+             line-height: 120%;
+         }
+         .description dt {
+             margin-top: 1em;
+             margin-left:-50px;
+         }
+         .description dd {
+             margin-left: 0px;
+         }
+        </style>
     </head>
     <body class="shower list">
         <header class="caption">
@@ -106,6 +121,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                       class="place r b img60" style="margin-bottom:30px;"/>
           </p>
         </section>
+        <section class="slide" id="functors">
+            <h2>Функторы</h2>
+            <p>
+                Функторы - это отображения категорий, сохраняющие структуру.
+            </p>
+            <p>
+                Функтор $F$ отображает категорию $\cal{C}$ в категорию $\cal{C}'$;
+                $$
+                g'=F(g);\quad F(g):F(B)\to F(C).
+                $$
+            </p>
+            <object data="pictures/functors.svg" type="image/svg+xml"
+                    class="place r b img75" style="margin-bottom:30px;"/>
+        </section>
         <section class="slide" id="complex-example">
             <h2>Система-комплекс</h2>
             <!-- <img src="pictures/system-configuration-basics.svg" alt=""
@@ -117,6 +146,41 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <h2>Информационная система как система-<br/>комплекс</h2>
             <img src="pictures/MDA-hierarchy-whole.svg" alt=""
                  class="place b c img75" style="margin-bottom:30px;" />
+        </section>
+        <section class="slide">
+            <h2>Интерпретация аксиом для системы<br/> конфигураций</h2>
+            <p class="description">
+                <dl>
+                    <dt>$X\leftrightarrow I$</dt>
+                    <dd>
+                        Любая программная система (ПС) представима моделями
+                        различного уровня абстракции, задаваемого индексом из $I$;
+                        <div class="differ">
+                            для любого множества моделей ПС существует база расслоения
+                            (классификация) по уровню абстракции;
+                        </div>
+                    </dd>
+                    <dt>$F\leftrightarrow I$</dt>
+                    <dd>
+                        Программные системы разрабатываются как трансформации
+                        моделей друг в друга;
+                        <div class="differ">
+                            для любой корректной ПС существует соответствующий
+                            набор моделей ее представления (формализованный или нет);
+                        </div>
+                    </dd>
+                    <dt>$\Delta X_{i,j}\leftrightarrow F_{i,j}$</dt>
+                    <dd>
+                        Для всякого изменения модели возможно найти или построить
+                        процедуры трансформации (функции сравнения);
+                        <div class="differ">
+                            методики разработки и инструментальные средства ПС,
+                            фактически, обеспечивают возможность внесения
+                            изменений в модели ПС.
+                        </div>
+                    </dd>
+                </dl>
+            </p>
         </section>
         <section class="slide">
             <h2>Компетентностный подход</h2>
