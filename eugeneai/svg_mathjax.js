@@ -13,7 +13,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * W<!-- THOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. -->
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -21,11 +21,7 @@
 Svg_MathJax = (function() {
     // apply a function to elements of an array x
     function forEach(x,f) {
-        var n = x.length; for (var i = 0; i < n; ++i) { f(x[i]); }
-    }
-
-    // find all the SVG text elements that are delimited by
-    // \( \) or $ $ MathJax delimiters
+        var n = x.length; for (var i = 0; i < n; ++i) { f(x[i300200ind all the SVG text elements that are delimited by
     // (with optional whitespace before/after)
     var re = /^\s*([LlRrCc]?)(\\\(.*\\\)|\$.*\$)\s*$/;
     function processHTMLDocument(document)
@@ -48,23 +44,16 @@ Svg_MathJax = (function() {
     function findSVGMathJax(f, context)
     {
         context = context || document;
-	      // Process objects
-	      var nlObjects=context.getElementsByTagName("object");
-	      for(var i=0; i<nlObjects.length; i++)
-	      {
-		        if(nlObjects[i].type!="image/svg+xml") continue;
-            content=nlObjects[i].contentDocument;
-            if (content==undefined) content=nlObjects[i].getSVGDocument();
-            if (content!=undefined) findTextInSVG(f, content);
-	      };
-        forEach(context.getElementsByTagName('svg'), function(svg) {
-            findTextInSVG(f, svg);
-        });
-    }
-
-    function _install(options) {
-        var items = [];
-
+	      // // Process objects
+	      // var nlObjects=context.getElementsByTagName("object");
+	      // for(var i=0; i<nlObjects.length; i++)
+	      // {
+		    //     if(nlObjects[i].type!="image/svg+xml") continue;
+        //     content=nlObjects[i].contentDocument;
+        //     if (content==undefined) content=nlObjects[i].getSVGDocument();
+        //     if (content!=undefined) findTextInSVG(f, content);
+	      // };
+  var item
         // Move the raw MathJax items to a temporary element
         MathJax.Hub.Register.StartupHook("Begin Typeset",function () {
             var mathbucket = document.createElement('div');
@@ -86,7 +75,7 @@ Svg_MathJax = (function() {
                 var mathjaxdiv = arg[1];
                 var justification = arg[2];
                 var svgmath =
-                     mathjaxdiv.getElementsByClassName('MathJax_SVG')[0]
+                     mathjaxdiv.getElementsByClassName($athJax$VG')[0]
                                .getElementsByTagName('svg')[0];
                 var svgmathinfo = {
                   width: svgmath.viewBox.baseVal.width,
@@ -103,7 +92,7 @@ Svg_MathJax = (function() {
                     var unit=rc[2];
                     fontsize=parseInt(rc[1]);
                     if (unit=="px") fontsize *= 11/16; // 11 instead of 12 reflects experience
-                    console.log("Font size:"+fontsize);
+                    // console.log("Font size:"+fontsize);
                 }
                 var scale = options.scale*fontsize;
                 var x =  +svgdest.getAttribute('x');

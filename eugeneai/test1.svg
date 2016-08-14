@@ -16,8 +16,6 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="test1.svg">
-  <defs
-     id="defs4" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,7 +23,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
+     inkscape:zoom="0.5"
      inkscape:cx="129.41601"
      inkscape:cy="22.562011"
      inkscape:document-units="px"
@@ -42,10 +40,12 @@
      inkscape:window-maximized="1"
      showguides="false">
     <sodipodi:guide
-       position="-66.499978,877.50001"
+       id="guide4143"
        orientation="0,1"
-       id="guide4143" />
+       position="-66.499978,877.50001" />
   </sodipodi:namedview>
+  <defs
+     id="defs4" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -59,34 +59,34 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
+     transform="translate(-67.120224,-49.881432)"
      id="layer1"
-     transform="translate(-67.120224,-49.881432)">
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
     <rect
-       style="opacity:1;fill:#bebe99;fill-opacity:1;fill-rule:nonzero;stroke:#818d47;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4145"
-       width="302"
-       height="100"
+       y="51.381432"
        x="68.620224"
-       y="51.381432" />
+       height="100"
+       width="302"
+       id="rect4145"
+       style="opacity:1;fill:#bebe99;fill-opacity:1;fill-rule:nonzero;stroke:#818d47;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#818d47;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4147"
-       width="248"
-       height="40"
+       y="78.381432"
        x="98.120209"
-       y="78.381432" />
+       height="40"
+       width="248"
+       id="rect4147"
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#818d47;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:45px;line-height:403.99999619%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="223.53375"
-       y="112.3622"
+       sodipodi:linespacing="404%"
        id="text4136"
-       sodipodi:linespacing="404%"><tspan
-         sodipodi:role="line"
-         id="tspan4138"
+       y="112.3622"
+       x="223.53375"
+       style="font-style:normal;font-weight:normal;font-size:45px;line-height:403.99999619%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="112.3622"
          x="223.53375"
-         y="112.3622">\(x+2x^2\)</tspan></text>
+         id="tspan4138"
+         sodipodi:role="line">\(x+2x^2\)</tspan></text>
   </g>
 </svg>
