@@ -82,13 +82,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <ol>
                     <li>Информационная система как система-комплекс <a href="#complex" class="internal"></a></li>
                     <li>Технологическая поддержка онтологического моделирования <a href="#ontotechsupport" class="internal"></a></li>
-                    <li><strong>Сервисы на основе обработки онтологиий</strong></li>
-                    <ul>
-                        <li>Сервер онтологий <a href="#ontoserver" class="internal"></a></li>
-                        <li>Аннотация документов <a href="#annotations" class="internal"></a></li>
-                        <li>Естественно-языковой доступ к БД разломов <a href="#faults" class="internal"></a></li>
-                    </ul>
-                    <li>Семантическая разметка документа <a href="#studprogs" class="internal"></a></li>
+                    <li><strong>Сервисы на основе обработки онтологиий</strong>
+                        <ul>
+                            <li>Сервер онтологий <a href="#ontoserver" class="internal"></a></li>
+                            <li>Аннотация документов <a href="#annotations" class="internal"></a></li>
+                            <li>Семантическая разметка документа <a href="#studprogs" class="internal"></a></li>
+                            <li>Естественно-языковой доступ к БД разломов <a href="#faults" class="internal"></a></li>
+                        </ul>
+                    </li>
                     <li>Обработка GRID <a href="#plastics" class="internal"></a></li>
                     <!-- <li>Другое <a href="#" class="internal"></a></li> -->
                 </ol>
@@ -101,20 +102,22 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
               Категория $C$ — класс объектов $Ob_C$ такой, что
               <ul>
                   <li>
-                      для каждой пары объектов $A,B$ категории $C$ ($A,B\in Ob_C$) задано множество морфизмов
-                      (стрелок) $\mathrm{Hom}_C(A,B)$, причём каждому морфизму соответствует единственные $A$ и $B$;
+                      для каждой пары объектов $A,B$ категории $C$ ($A,B\in Ob_C$)
+                      задано множество морфизмов (стрелок) $\mathrm{Hom}_C(A,B)$,
+                      причём каждому морфизму соответствует единственные $A$ и $B$;
                       пример — $f: A \to B$;
                   </li>
                   <li>
-                      для пары морфизмов $f: A \to B$ и $g: B \to C$ определена композиция $f \circ g: A \to C$, обозначаемая также $fg$;
+                      для пары морфизмов $f: A \to B$ и $g: B \to C$ определена
+                      композиция $f \circ g: A \to C$, обозначаемая также $fg$;
                   </li>
                   <li>
                       для каждого объекта $X$ задан тождественный морфизм
                       $1_X: X \to X$ такой, что для любого $f: A \to B$&nbsp;&nbsp;
-                      $1_B \circ f=f=f \circ 1_A$.
+                      $1_B \circ f=f=f \circ 1_A$;
                   </li>
                   <li>
-                      Композиция ассоциативна.
+                      композиция ассоциативна.
                   </li>
               </ul>
               <object data="pictures/categories.svg" type="image/svg+xml"
@@ -205,8 +208,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         отношения;
                     </li>
                     <li>Заранее не ясны классы запросов, которые потенциально могут быть
-                        заданы к теории - <span class="differ">отнология должна быть
-                        загружена в оперативную память</span>.
+                        заданы к теории - <span class="differ">в общем случае отнология
+                        должна быть загружена полностью в оперативную память</span>.
                     </li>
                 </ul>
             </p>
@@ -214,10 +217,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <section class="slide" id="ontoserver">
             <h2>Сервер онтологиий</h2>
             <p> Сервер онтологиий - способ организации доступа к онтологии
-                (T-Box и A-Box). Он позволяет
+                (T-Box и A-Box). <br/>
+                Он позволяет
                 <ul>
                     <li>хранить коллекции онтологий в отдельных графах;</li>
-                    <li>просматривать структуры;</li>
+                    <li>запрашивать, загружать и просматривать структуры;</li>
                     <li>делать запросы SPARQL, текстовое содержимое;</li>
                     <li>разрабатывать интеллектные подсистемы.</li>
                 </ul>
@@ -302,15 +306,29 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </pre>
             </p>
         </section>
+        <section class="slide">
+            <h2>Пример работы сервера</h2>
+        </section>
+
+        <section class="slide" id="studprogs">
+            <h2>Аннотация рабочих программ</h2>
+            <p>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Восстановление структуры PDF</h2>
+            <p>Алгоритм анализа, пример разбора по морфемам, пример разбора link-grammar</p>
+        </section>
+
         <section class="slide" id="nlp-morpty">
-            <h2>Морфемы <code>pymorphy2</code></h2>
+            <h2>Анализ форм слова (<code>pymorphy2</code>)</h2>
             <p>Библиотека <code>pymorphy2</code> развивает базовые алгоритмы AOT
                 морфологического разбора слова в направлении более компактного
                 представления словаря:
                 <div class="differ">
-                    По сравнению с обычным словарем Python структура DAWG (DAFSA) занимает в 200 раз
-                    меньше памяти при сравнимой скорости доступа; поиск по префиксу;
-                    поддерживается режим только-чтение.
+                    По сравнению с обычным словарем Python структура DAWG (DAFSA)
+                    занимает в 200 раз меньше памяти при сравнимой скорости доступа;
+                    поиск по префиксу; поддерживается режим только-чтение.
                 </div>
                 <div style="width: 73%;margin-top:1em;">
                     <a href="http://opencorpora.org/" class="external">OpenCorpora</a> (3 тысячи
@@ -326,6 +344,100 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     class="place r b"
                     width="33%" height="auto"
             />
+        </section>
+        <section class="slide">
+            <h2>Грамматический разбор предложения</h2>
+            <p>
+                Грамматический разбор предложения реализован при
+                помощи библиотеки <code>linkgrammar</code>.<br/>
+                Основные возможности библиотеки:
+                <ul>
+                    <li>Строит варианты связей между словами (двойками);</li>
+                    <li>Задаются различные варианты разбора
+                        (полный, частичный, с разрывами фраз);</li>
+                    <li>Связи можно выгружать и далее анализировать;</li>
+                    <li>Графический вывод, в т.ч. в PDF.</li>
+                </ul>
+            </p>
+            <img src="pictures/link-grammar-example.png" class="place r b img75"/>
+        </section>
+        <section class="slide">
+            <h2>Пример чатичного восстановления текста</h2>
+            <img src="pictures/decode-pdf.png" class="place r b img75"/>
+        </section>
+        <section class="slide">
+            <h2>Оригинал текста</h2>
+            <img src="pictures/origin-pdf.png" class="place r b img75"/>
+        </section>
+        <section class="slide" id="faults">
+            <h2>ЕЯ-интерфейс к базе данных разломов</h2>
+            <p>
+                Проблематика - структура таблицы.
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Онтология разломов</h2>
+            <p>
+                <ul>
+                    <li>TBox
+                    </li>
+                    <li>ABox
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <section class="slide">
+            <p>
+                Встраивание отношения из онтологии в программу.
+            </p>
+        </section>
+        <section class="slide" id="plastics">
+            <h2>Другие задачи</h2>
+            <p>
+                <ul>
+                    <li>Разработка методов анализа пластики рельефа.</li>
+                    <li>Информационное сопровождение проекта по исследованию
+                        загрязнения острова Ольхон.
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Публикации и доклады в 2016 году</h2>
+            <p class="description">
+                Фактически опубликованные:
+                <ol>
+                    <li>E.Cherkashin, A.Davydov, A.Larionov
+                        <strong>
+                            Positive Constructed Formulas Preprocessing for Automatic Deduction
+                        </strong>
+                        Procs. of 39-th International convention MIPRO, Intelligent Systems (CIS),
+                        May 30 - June 03, 2016, Opatija, Croatia.
+                        pp.&nbsp;<a class="external" href="http://docs.mipro-proceedings.com/proceedings/mipro_2016_proceedings.pdf">1578-1581</a>. (<strong>SCOPUS ?</strong>)
+                    </li>
+                    <li>A.Mikhailov, A.Hmelnov, E.Cherkashin, I.Bychkov
+                        <strong>
+                            Control Flow Graph Visualization in Compiled Software Engineering
+                        </strong>
+                        Procs. of 39-th International convention MIPRO, Intelligent Systems (CIS),
+                        May 30 - June 03, 2016, Opatija, Croatia.
+                        pp.&nbsp;<a class="external" href="http://docs.mipro-proceedings.com/proceedings/mipro_2016_proceedings.pdf">1586-1590</a>. (<strong>SCOPUS ?</strong>)
+                    </li>
+                    <li>Кузьмин С.Б., Невзорова И.В., Черкашин Е.А., Шаманова С.И. <strong>Геоинформационное
+                        картографирование на основе модели пластики рельефа и возможность ее использования
+                        при геоморфологическом анализе </strong>// <a href="http://geosys.ru/index.php/ru/journal.html" class="external">Геоинформатика</a>,
+                        2016. № 2. С. 19-34. (<strong>ВАК</strong>)
+                    </li>
+                </ol>
+                Необходимо опубликовать результаты в одном из журналов
+                <div class="differ">
+                    <a href="http://www.edit.muh.ru/content/mags_dist.htm" class="external">
+                        Дистанционное и виртуальное обучение</a> (ВАК).<br/>
+                    <a href="http://mais-journal.ru/jour" class="external">
+                        Моделирование и анализ информационных систем</a> (МАИС)
+                    (ВАК, SCOPUS).
+                </div>
+            </p>
         </section>
         <section class="slide shout">
             <h2 class="place m c">Спасибо за внимание!</h2>
