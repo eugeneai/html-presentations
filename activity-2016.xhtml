@@ -307,12 +307,110 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </p>
         </section>
         <section class="slide">
-            <h2>Пример работы сервера</h2>
+            <h2>Страница добавления документа</h2>
+            <img src="pictures/celulla-add-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление аннотации</h2>
+            <img src="pictures/celulla-annot-def-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление аннотируемого документа</h2>
+            <img src="pictures/celulla-annot-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление содержимого аннотации</h2>
+            <img src="pictures/celulla-annot-body-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Страница поиска документа</h2>
+            <img src="pictures/celulla-search-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Накопленные онтологии</h2>
+            <p style="width:49%;">
+                К настоящему моменту накоплено более 40 онтологий.<br/>
+                <div class="differ">
+                    Используется по 1-2 термина из каждой в среднем.
+                </div>
+                Разрабатываются три онтологии:
+                <ul>
+                    <li>Описание Model-View-Controller;</li>
+                    <li>Онтология проекта (пользователи, роли);</li>
+                    <li>Онтология разломов <a href="#faults" class="internal"/>;</li>
+                    <li>Онтология Bowlogna <a href="#studprogs" class="internal"/>;</li>
+                </ul>
+            </p>
+            <img src="pictures/celulla-graphs-stored.png" class="place r b"
+                 width="45%"
+                 style="margin-bottom:30px;"
+            />
         </section>
 
         <section class="slide" id="studprogs">
-            <h2>Аннотация рабочих программ</h2>
-            <p>
+            <h2>Аннотация рабочих/учебных программ</h2>
+            <p><strong>Проблемы</strong>:
+                <ul>
+                    <li>каждый год-два Министерство науки и образования РФ
+                        меняет форму рабочих программ дисциплин (переформатирование
+                        документов);
+                    </li>
+                    <li>необходимо верифицировать "охват" компетенций (ОК,ОПК,ПК)
+                        модулями дисциплин, взаимозависимость модулей;
+                    </li>
+                    <li>формально представить весё содержание (материал)
+                        дисциплин [на сайте университета].
+                    </li>
+                </ul>
+                <strong>Предлагаемое решение</strong> - разработать подсистему загрузки и аннотации программ;
+                <div class="differ">создать шаблоны генераторов документов из аннотаций.</div>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Машинное обучение</h2>
+            <p class="description"> В основе решения - алогритмическое оценивание свойств абзацев текста;
+                разметка шаблонов атрибутами онтологии; машинное обучение.
+            </p>
+            <p style="background:#ABC;.." class="description">
+                <strong><mark class="important">1.</mark>
+                    <mark>Цели</mark> и <mark>задачи</mark>
+                </strong>
+                [<mark><strong>Ж</strong></mark>] <br/>
+                Курс «Сетевые операционные системы» ставит своей целью... $\to$ <code>o:mainAimDefinition</code><br/>
+                . . . . <br/>
+                Освоение программы настоящей дисциплины позволит сформировать у
+                обучающегося <mark>следующие</mark> <mark>компетенции</mark>:<br/>
+                - способностью к профессиональной эксплуатации современного
+                оборудования и приборов (<mark>ОК-8</mark>);
+                $\to$ <code>o:competence [BNode]</code><br />
+                В результате освоения программы дисциплины обучающийся должен
+                <mark><i>знать</i></mark> [<mark><i>Н</i></mark>]:<br/>
+                - основы администрирования ... систем;
+                $\to$ <code>o:knowledge [BNode]</code><br/>
+                . . . . <br/>
+                <mark><i>уметь</i></mark> [<mark><i>Н</i></mark>]:<br/>
+                - производить установку и настройку современных
+                серверных операционных систем;
+                $\to$ <code>o:skill [BNode]</code><br/>
+                . . . . <br/>
+                <strong><mark>8.3.2</mark> Ресурсы сети Интернет:</strong> [<mark><strong>Ж</strong></mark>]<br/>
+                <mark>1.</mark> https://intuit.ru/ $\to$ <code>nfo:url $1</code><br/>
+                <mark>2.</mark> http://www.archlinux.org/ $\to$ <code>nfo:url $1</code><br/>
             </p>
         </section>
         <section class="slide">
@@ -367,7 +465,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Оригинал текста</h2>
-            <img src="pictures/origin-pdf.png" class="place r b img75"/>
+            <img src="pictures/origin-pdf.png" class="place m b" width="65%"/>
         </section>
         <section class="slide" id="faults">
             <h2>ЕЯ-интерфейс к базе данных разломов</h2>
