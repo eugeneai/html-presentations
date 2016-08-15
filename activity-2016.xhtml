@@ -261,13 +261,71 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                  class="place r b" width="55%" height="auto"
             />
         </section>
-        <section class="slide">
-            <h2>Связь ClioPatria с SWI-Prolog-ом</h2>
-
-
-        </section>
         <section class="slide" id="annotations">
             <h2>Сервер аннотаций документов</h2>
+            <p> Предназначен для хранения аннотаций - описаний элементов документов. Возможности:
+                <ul>
+                    <li>Разделение содержимого и аннотаций по разным хранилищам;</li>
+                    <li>Встраиваемые интерпретаторы содержимого;</li>
+                    <li>Приложение отрисо-<br/>вывается на стороне<br/> клиента.</li>
+                </ul>
+                <div style="width:30%;margin-top:0px">
+                    <ul style="margin-top:0px;">
+                    </ul>
+                </div>
+            </p>
+            <img src="pictures/peixe-architecture-ru-1.svg" class="place r b" width="65%"/>
+        </section>
+        <section class="slide">
+            <h2>Структура аннотаций</h2>
+            <p>Подход реализует стандарт <a href="http://www.openannotation.org/spec/core/#Introduction" class="external">Open Annotation</a> (oa:).
+            </p>
+            <img src="pictures/lib/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png"
+                 class="place m b" width="80%" style="margin-bottom:50px;"/>
+        </section>
+        <section class="slide">
+            <h2>Связь ClioPatria с SWI-Prolog-ом</h2>
+            <p style="margin-left:10px;">
+                <pre>
+                    <code>annotation_query(target, Target_Id, Ann, <mark>Target</mark>):-</code>
+                    <code>        <mark><mark class="important">rdf</mark>(Target, <mark class="important">nie:identifier</mark>, literal(Target_Id), document)</mark>,</code>
+                    <code>        rdf(Ann, oa:hasTarget, Target, document),</code>
+                    <code>        rdf(Ann, rdf:type, <mark>oa:'Annotation'</mark>, document),!.</code>
+                    <code>annotation_query(body, Body_Id, Ann, <mark>Body</mark>):-</code>
+                    <code>        rdf(Body, nie:identifier, literal(Body_Id), document),</code>
+                    <code>        rdf(Ann, oa:hasBody, Body, document),</code>
+                    <code>        rdf(Ann, rdf:type, oa:'Annotation', document),!.</code>
+                    <code>annotation_query(body, Target_Id, Ann, <mark>Body</mark>, <mark>Body_Id</mark>):-</code>
+                    <code>        annotation_query(target, Target_Id, Ann, _),</code>
+                    <code>        rdf(Ann, oa:hasBody, Body, document),</code>
+                    <code>        rdf(Body, nie:identifier, literal(Body_Id)).</code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide" id="nlp-morpty">
+            <h2>Морфемы <code>pymorphy2</code></h2>
+            <p>Библиотека <code>pymorphy2</code> развивает базовые алгоритмы AOT
+                морфологического разбора слова в направлении более компактного
+                представления словаря:
+                <div class="differ">
+                    По сравнению с обычным словарем Python структура DAWG (DAFSA) занимает в 200 раз
+                    меньше памяти при сравнимой скорости доступа; поиск по префиксу;
+                    поддерживается режим только-чтение.
+                </div>
+                <div style="width: 73%;margin-top:1em;">
+                    <a href="http://opencorpora.org/" class="external">OpenCorpora</a> (3 тысячи
+                    уникальных парадигм из примерно 400 тысяч лексем) - 15 Мб, 100 тыс. слов/сек.
+                    <div>
+                        DAFSA - Deterministic Acyclic Finite State Automaton;<br/>
+                        DAWG - Directed Acyclic Word Graph.
+                    </div>
+                </div>
+            </p>
+            <object data="pictures/lib/Trie-vs-minimal-acyclic-fa.svg"
+                    type="image/svg+xml"
+                    class="place r b"
+                    width="33%" height="auto"
+            />
         </section>
         <section class="slide shout">
             <h2 class="place m c">Спасибо за внимание!</h2>
