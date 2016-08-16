@@ -350,7 +350,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </div>
                 Разрабатываются три онтологии:
                 <ul>
-                    <li>Описание Model-View-Controller;</li>
+                    <li>Model-View-Controller;</li>
                     <li>Онтология проекта (пользователи, роли);</li>
                     <li>Онтология разломов <a href="#faults" class="internal"/>;</li>
                     <li>Онтология Bowlogna <a href="#studprogs" class="internal"/>;</li>
@@ -360,6 +360,29 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                  width="45%"
                  style="margin-bottom:30px;"
             />
+        </section>
+        <section class="slide">
+            <h2>Сервер <a href="http://lov.okfn.org/dataset/lov/" class="external">lov.okfn.org</a></h2>
+                <img src="pictures/lov-main.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:30px;"
+                />
+        </section>
+
+        <section class="slide">
+            <h2>Сервер <a href="http://lov.okfn.org/dataset/lov/" class="external">lov.okfn.org</a></h2>
+                <img src="pictures/lov-foaf-with-instr.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:90px;"
+                />
+        </section>
+
+        <section class="slide">
+            <h2>Инструменты просмтра/верификации</h2>
+                <img src="pictures/lov-visual.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:30px;"
+                />
         </section>
 
         <section class="slide" id="studprogs">
@@ -379,11 +402,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </ul>
                 <strong>Предлагаемое решение</strong> - разработать подсистему загрузки и аннотации программ;
                 <div class="differ">создать шаблоны генераторов документов из аннотаций.</div>
+                Проект <a class="external" href="https://github.com/eugeneai/icc.studprogs"><code>icc.studprogs</code> </a>.
             </p>
         </section>
         <section class="slide">
             <h2>Машинное обучение</h2>
-            <p class="description"> В основе решения - алогритмическое оценивание свойств абзацев текста;
+            <p class="description"> В основе решения - алгоритмическое оценивание свойств абзацев текста;
                 разметка шаблонов атрибутами онтологии; машинное обучение.
             </p>
             <p style="background:#ABC;.." class="description">
@@ -414,8 +438,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </p>
         </section>
         <section class="slide">
-            <h2>Восстановление структуры PDF</h2>
-            <p>Алгоритм анализа, пример разбора по морфемам, пример разбора link-grammar</p>
+            <h2>Аннотация програм в PDF</h2>
+            <p>Постранично выполнять шаги:
+                <ol>
+                    <li>Распознавание таблицы и ее структуры <code>pdf-table-extract</code> $\to (x,y,w,h)$ ;</li>
+                    <li>Экстрагирование текста и атрибутов, исключая $(x,y,w,h)$, $\to$ <code>Список строк</code>;</li>
+                    <li>Удаление разрывов, номеров страниц, колонтитулов;</li>
+                    <li>Удаление переносов в строках <code>pymorphy2</code> (АОТ);</li>
+                    <li>Объединение строк в абзацы <code>link-grammar</code>;</li>
+                    <li>Классификация абзацев $\to$ ABox.</li>
+                </ol>
+                Сгенерировать тексты или шаблоны рабочих, учебных программ, ФОС.
+            </p>
         </section>
 
         <section class="slide" id="nlp-morpty">
@@ -447,7 +481,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <h2>Грамматический разбор предложения</h2>
             <p>
                 Грамматический разбор предложения реализован при
-                помощи библиотеки <code>linkgrammar</code>.<br/>
+                помощи библиотеки <code>link-grammar</code>.<br/>
                 Основные возможности библиотеки:
                 <ul>
                     <li>Строит варианты связей между словами (двойками);</li>
