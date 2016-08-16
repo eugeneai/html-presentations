@@ -511,16 +511,89 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Онтология разломов</h2>
-
             <img src="pictures/NLP-fault-tbox-shot.png" class="place l b" width="30%"
                  style="margin-bottom:30px;margin-left:40px;"/>
             <img src="pictures/NLP-fault-abox-shot.png" class="place r b" width="45%"
                  style="margin-bottom:30px"/>
+            <div class="place m c">
+                T-Box&nbsp;&nbsp;&nbsp;&nbsp;A-Box&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
         </section>
         <section class="slide">
+            <h2>Встраивание онтологии в интерпретатор ЕЯ</h2>
             <p>
-                Встраивание отношения из онтологии в программу.
+                <ol>
+                    <li>Портирована программа
+                        <a href="https://github.com/eugeneai/geobase" class="external">
+                            <code>GEOBASE.PRO</code>
+                        </a> на ISO-Prolog ;</li>
+                    <li>Реализован интерфейс к подсистеме
+                        <a href="http://pengines.swi-prolog.org/apps/scratchpad/index.html"
+                           class="external">
+                            <code>Pengines</code>
+                        </a>;</li>
+                    <li>Добавлена синтаксическая структура, интерпретирующая метоописания
+                        отношений в онтологии.
+                    </li>
+                    <pre class="description">
+                        <code>schema('population','of','state').</code>
+                        <code>schema('area','of','state').</code>
+                        <code>schema('city','<mark>in</mark>','state').</code>
+                        <code>schema('point','in','state').</code>
+                        <code>schema('state','<mark>with</mark>','point').</code>
+                        <code>schema('height','of','point').</code>
+                        <code>schema('name','<mark>of</mark>','river').</code>
+                        <code>schema('name','of','capital').</code>
+                        <code>schema('name','of','city').</code>
+                    </pre>
+                </ol>
             </p>
+        </section>
+        <section class="slide">
+            <p style="margin-top:-60px;">
+                <pre>
+                    <code>
+schema(Prop, 'of', SubjName):- % Syntax mode
+        <mark>var</mark>(SubjName),
+        geob_prop(Prop,_).
+schema(<mark>Prop</mark>, 'of', SubjName):- % Interpretation mode
+        <mark>nonvar</mark>(SubjName),
+        geob_prop(<mark>Prop, GProp</mark>),
+        geob_ent_class(SubjName, Subj),
+        <b>rdf_reachable</b>(<mark>Subj</mark>, rdfs:subClassOf, <mark>Parent</mark>),
+        rdf(G<mark>Prop</mark>, <mark class="important">rdfs:domain</mark>, Parent),!.
+geob_ent_class(Ent, Class):-
+        sub_atom(Ent,0,1,R,H),
+        sub_atom(Ent,1,R,0,T),
+        string_upper(H,U),
+        atom_concat(U,T,GEnt),
+        <b>geob_class</b>(GEnt, Class).
+                    </code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide">
+            <p style="margin-top:-10px;">
+                <pre>
+                    <code>
+geob_ent(E, <mark>A</mark>):-
+        nonvar(E),
+        geob_ent_class(E,Class),
+        rdf(<mark>A</mark>, rdf:type, Class, geodata).
+geob_prop(Prop, GProp):-
+        <b>rdf_global_id(geob:Prop, GProp)</b>,
+        rdf(GProp,rdf:type,owl:'ObjectProperty'),!.
+geob_class(Class, GClass):-
+        rdf_global_id(geob:Class, GClass),
+        rdf(GClass,rdf:type,owl:'Class'),!.
+                    </code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Интерфейс пользоателя</h2>
+            <img src="pictures/Geobase-ui.png" class="place m c" width="90%"
+                 style="margin-bottom:30px"/>
         </section>
         <section class="slide" id="plastics">
             <h2>Другие задачи</h2>
