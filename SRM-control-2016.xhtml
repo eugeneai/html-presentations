@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+<!ENTITY PRESTITLE "Интеллектное управление рентгеновским спектрографом">
+]
+>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>&PRESTITLE;</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=792, user-scalable=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({
+             "tex2jax": {inlineMath: [['$','$'], ['\\(','\\)']]},
+             "CommonHTML": {
+                 "preferredFont": "STIX"
+             }
+         });
+        </script>
+        <script type="text/javascript" async="async"
+                src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
+        <link rel="stylesheet" href="eugeneai/local.css"/>
+        <style>
+         .differ {
+             color:blue;
+         }
+         .description {
+             line-height: 120%;
+         }
+         .description dt {
+             margin-top: 1em;
+             margin-left:-50px;
+         }
+         .description dd {
+             margin-left: 0px;
+         }
+        </style>
+    </head>
+    <body class="shower list">
+        <header class="caption">
+            <h1>&PRESTITLE;</h1>
+            <p>
+                к.т.н. Черкашин Е.А., ИДСТУ СО РАН
+            </p>
+            <p>
+                Презентация подготовлена при помощи системы
+                <a href="https://github.com/shower/shower">Shower</a>
+                (<a href="https://github.com/shower/shower/wiki">Страница
+                    Wiki</a>).
+            </p>
+        </header>
+        <section class="slide black cover" id="cover">
+            <h2>&PRESTITLE;</h2>
+            <p class="center">
+                Автоматизация планирования эксперимента в РФА при помощи экспертной системы
+            </p>
+            <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
+            <p class="place b r">
+                к.т.н. <a href="mailto:eugeneai@irnok.net">
+                Черкашин Е.А.
+                </a>,
+                <a href="mailto:tcherk@crust.irk.ru">
+                  Т.Ю.Черкашина
+                </a>,
+                Е.В.Худоногова<br/>
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35" class="external" >
+                    Комплексных информационных систем</a><br/>
+                ИДСТУ СО РАН
+            </p>
+
+            <!-- <img src="pictures/cover.jpg" alt=""> -->
+            <!--
+                 To apply styles to the certain slides
+                 set slide ID to get needed elements
+               -->
+        </section>
+        <section class="slide">
+            <h2>Содержание доклада</h2>
+            <p class="place l c" style="margin-left:100px;">
+                <ol>
+                    <li>Информационная система как система-комплекс <a href="#complex" class="internal"></a></li>
+                    <li>Технологическая поддержка онтологического моделирования <a href="#ontotechsupport" class="internal"></a></li>
+                    <li><strong>Сервисы на основе обработки онтологий</strong>
+                        <ul>
+                            <li>Сервер онтологий <a href="#ontoserver" class="internal"></a></li>
+                            <li>Аннотация документов <a href="#annotations" class="internal"></a></li>
+                            <li>Семантическая разметка документа <a href="#studprogs" class="internal"></a></li>
+                            <li>Естественно-языковой доступ к БД разломов <a href="#faults" class="internal"></a></li>
+                        </ul>
+                    </li>
+                    <li>Обработка GRID <a href="#plastics" class="internal"></a></li>
+                    <!-- <li>Другое <a href="#" class="internal"></a></li> -->
+                </ol>
+            <!-- <p class="note">Комментарий.</p> -->
+            </p>
+        </section>
+        <section class="slide" id="categories">
+          <h2>Категории</h2>
+          <p>
+              Категория $C$ — класс объектов $Ob_C$ такой, что
+              <ul>
+                  <li>
+                      для каждой пары объектов $A,B$ категории $C$ ($A,B\in Ob_C$)
+                      задано множество морфизмов (стрелок) $\mathrm{Hom}_C(A,B)$,
+                      причем каждому морфизму соответствует единственные $A$ и $B$;
+                      пример — $f: A \to B$;
+                  </li>
+                  <li>
+                      для пары морфизмов $f: A \to B$ и $g: B \to C$ определена
+                      композиция $f \circ g: A \to C$, обозначаемая также $fg$;
+                  </li>
+                  <li>
+                      для каждого объекта $X$ задан тождественный морфизм
+                      $1_X: X \to X$ такой, что для любого $f: A \to B$&nbsp;&nbsp;
+                      $1_B \circ f=f=f \circ 1_A$;
+                  </li>
+                  <li>
+                      композиция ассоциативна.
+                  </li>
+              </ul>
+              <object data="pictures/categories.svg" type="image/svg+xml"
+                      class="place r b img60" style="margin-bottom:30px;"/>
+          </p>
+        </section>
+        <section class="slide" id="functors">
+            <h2>Функторы</h2>
+            <p>
+                Функторы - это отображения категорий, сохраняющие структуру.
+            </p>
+            <p>
+                Функтор $F$ отображает категорию $\cal{C}$ в категорию $\cal{C}'$;
+                $$
+                g'=F(g);\quad F(g):F(B)\to F(C).
+                $$
+            </p>
+            <object data="pictures/functors.svg" type="image/svg+xml"
+                    class="place r b img75" style="margin-bottom:30px;"/>
+        </section>
+        <section class="slide" id="complex-example">
+            <h2>Система-комплекс</h2>
+            <!-- <img src="pictures/system-configuration-basics.svg" alt=""
+                 class="place m c img75" /> -->
+            <object data="pictures/system-configuration-basics.svg" type="image/svg+xml"
+                    class="place m c img75" />
+        </section>
+        <section class="slide" id="complex">
+            <h2>Информационная система как система-<br/>комплекс</h2>
+            <img src="pictures/MDA-hierarchy-whole.svg" alt=""
+                 class="place b c img75" style="margin-bottom:30px;" />
+        </section>
+        <section class="slide">
+            <h2>Интерпретация аксиом для системы<br/> конфигураций</h2>
+            <p class="description">
+                <dl>
+                    <dt>$X\leftrightarrow I$</dt>
+                    <dd>
+                        Любая программная система (ПС) представима моделями
+                        различного уровня абстракции, задаваемого индексом из $I$;
+                        <div class="differ">
+                            для любого множества моделей ПС существует база расслоения
+                            (классификация) по уровню абстракции;
+                        </div>
+                    </dd>
+                    <dt>$F\leftrightarrow I$</dt>
+                    <dd>
+                        Программные системы разрабатываются как трансформации
+                        моделей друг в друга;
+                        <div class="differ">
+                            для любой корректной ПС существует соответствующий
+                            набор моделей ее представления (формализованный или нет);
+                        </div>
+                    </dd>
+                    <dt>$\Delta X_{i,j}\leftrightarrow F_{i,j}$</dt>
+                    <dd>
+                        Для всякого изменения модели возможно найти или построить
+                        процедуры трансформации (функции сравнения);
+                        <div class="differ">
+                            методики разработки и инструментальные средства ПС,
+                            фактически, обеспечивают возможность внесения
+                            изменений в модели ПС.
+                        </div>
+                    </dd>
+                </dl>
+            </p>
+        </section>
+        <section class="slide" id="ontotechsupport">
+            <h2>Технологическая поддержка <br/>онтологического моделирования</h2>
+            <p class="description">
+                Онтология состоит из следующих частей:
+                <dl>
+                    <dt><strong>Терминологический бокс (TBox)</strong></dt>
+                    <dd>Совокупность абстрактных концептов (например, Классов), отношений, а также аксиом,
+                        задающих теоретический аспект предметной области.
+                    </dd>
+                    <dt><strong>Утверждения о свойствах индивидуумов (ABox)</strong></dt>
+                    <dd>Часть онтологии, содержащая конкретные данные об объектах предметной области, в
+                        т.ч. данные базы данных.
+                    </dd>
+                </dl>
+            </p>
+            <p>
+                <strong>Особенности онтологии как структуры данных:</strong>
+                <ul>
+                    <li>Формально самодокументированная (если хорошо оформлена);</li>
+                    <li>Невыразительный язык: тройка задает только двухаргументные
+                        отношения;
+                    </li>
+                    <li>Заранее не ясны классы запросов, которые потенциально могут быть
+                        заданы к теории - <span class="differ">в общем случае отнология
+                        должна быть загружена полностью в оперативную память</span>.
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <section class="slide" id="ontoserver">
+            <h2>Сервер онтологий</h2>
+            <p> Сервер онтологий - способ организации доступа к онтологии
+                (T-Box и A-Box). <br/>
+                Он позволяет
+                <ul>
+                    <li>хранить коллекции онтологий в отдельных графах;</li>
+                    <li>запрашивать, загружать и просматривать структуры;</li>
+                    <li>делать запросы SPARQL, текстовое содержимое;</li>
+                    <li>разрабатывать интеллектные подсистемы.</li>
+                </ul>
+            </p>
+            <object data="pictures/ontoserver.svg" type="image/svg+xml"
+                    class="place r b" width="60%" height="auto"
+                    style="margin-bottom:30px;margin-right:10px;"/>
+        </section>
+        <section class="slide">
+            <h2>Пример SPARQL-запроса</h2>
+            <p>
+                <pre>
+                    <code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#></code>
+                    <code>PREFIX type: &lt;http://dbpedia.org/class/yago/></code>
+                    <code>PREFIX prop: &lt;http://dbpedia.org/property/></code>
+                    <code><mark>SELECT</mark> ?country_name ?population</code>
+                    <code><mark>WHERE</mark> {</code>
+                    <code>    ?country <mark class="important">a</mark> type:LandlockedCountries ;</code>
+                    <code>         rdfs:label ?country_name ;</code>
+                    <code>         prop:populationEstimate ?population .</code>
+                    <code>    <mark>FILTER</mark> (?population > 15000000) .</code>
+                    <code>}</code>
+                </pre>
+                Сокращение "<code>a</code>" обозначает <code>rdfs:type</code>.
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Сервер <a href="http://cliopatria.swi-prolog.org/home" class="external">ClioPatria</a> </h2>
+            <p>
+                Свободный сервер онтологий, базовые возможности:
+                <ul>
+                    <li>Реализован на языке Prolog с процедурами C;</li>
+                    <li>Графы хранятся в "Кэше" директорий, формат TRP;<br/>
+                        и грузятся <mark class="important">компактно</mark> и полностью
+                        в оперативную память;</li>
+                    <li>Доступ - SPARQL, предикаты Prolog, Pengines.</li>
+                </ul>
+                <span class="differ">WordNet-en занимает 3 Гб ОЗУ.</span>
+            </p>
+            <img src="pictures/ClioPatria-shot.png"
+                 class="place r b" width="55%" height="auto"
+            />
+        </section>
+        <section class="slide" id="annotations">
+            <h2>Сервер аннотаций документов</h2>
+            <p> Предназначен для хранения аннотаций - описаний элементов документов. Возможности:
+                <ul>
+                    <li>Разделение содержимого и аннотаций по разным хранилищам;</li>
+                    <li>Встраиваемые интерпретаторы содержимого;</li>
+                    <li>Приложение отрисо-<br/>вывается на стороне<br/> клиента.</li>
+                </ul>
+                <div style="width:30%;margin-top:0px">
+                    <ul style="margin-top:0px;">
+                    </ul>
+                </div>
+            </p>
+            <img src="pictures/peixe-architecture-ru-1.svg" class="place r b" width="65%"/>
+        </section>
+        <section class="slide">
+            <h2>Структура аннотаций</h2>
+            <p>Подход реализует стандарт <a href="http://www.openannotation.org/spec/core/#Introduction" class="external">Open Annotation</a> (oa:).
+            </p>
+            <img src="pictures/lib/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png"
+                 class="place m b" width="80%" style="margin-bottom:50px;"/>
+        </section>
+        <section class="slide">
+            <h2>Связь ClioPatria с SWI-Prolog-ом</h2>
+            <p style="margin-left:10px;">
+                <pre>
+                    <code>annotation_query(target, Target_Id, Ann, <mark>Target</mark>):-</code>
+                    <code>        <mark><mark class="important">rdf</mark>(Target, <mark class="important">nie:identifier</mark>, literal(Target_Id), document)</mark>,</code>
+                    <code>        rdf(Ann, oa:hasTarget, Target, document),</code>
+                    <code>        rdf(Ann, rdf:type, <mark>oa:'Annotation'</mark>, document),!.</code>
+                    <code>annotation_query(body, Body_Id, Ann, <mark>Body</mark>):-</code>
+                    <code>        rdf(Body, nie:identifier, literal(Body_Id), document),</code>
+                    <code>        rdf(Ann, oa:hasBody, Body, document),</code>
+                    <code>        rdf(Ann, rdf:type, oa:'Annotation', document),!.</code>
+                    <code>annotation_query(body, Target_Id, Ann, <mark>Body</mark>, <mark>Body_Id</mark>):-</code>
+                    <code>        annotation_query(target, Target_Id, Ann, _),</code>
+                    <code>        rdf(Ann, oa:hasBody, Body, document),</code>
+                    <code>        rdf(Body, nie:identifier, literal(Body_Id)).</code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Страница добавления документа</h2>
+            <img src="pictures/celulla-add-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление аннотации</h2>
+            <img src="pictures/celulla-annot-def-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление аннотируемого документа</h2>
+            <img src="pictures/celulla-annot-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Представление содержимого аннотации</h2>
+            <img src="pictures/celulla-annot-body-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Страница поиска документа</h2>
+            <img src="pictures/celulla-search-doc-shot.png" class="place m b"
+                 width="80%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Накопленные онтологии</h2>
+            <p style="width:49%;">
+                К настоящему моменту накоплено более 40 онтологий.<br/>
+                <div class="differ">
+                    Используется по 1-2 термина из каждой в среднем.
+                </div>
+                Разрабатываются три онтологии:
+                <ul>
+                    <li>Model-View-Controller;</li>
+                    <li>Онтология проекта (пользователи, роли);</li>
+                    <li>Онтология разломов <a href="#faults" class="internal"/>;</li>
+                    <li>Онтология Bowlogna <a href="#studprogs" class="internal"/>;</li>
+                </ul>
+            </p>
+            <img src="pictures/celulla-graphs-stored.png" class="place r b"
+                 width="45%"
+                 style="margin-bottom:30px;"
+            />
+        </section>
+        <section class="slide">
+            <h2>Сервер <a href="http://lov.okfn.org/dataset/lov/" class="external">lov.okfn.org</a></h2>
+                <img src="pictures/lov-main.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:30px;"
+                />
+        </section>
+
+        <section class="slide">
+            <h2>Сервер <a href="http://lov.okfn.org/dataset/lov/" class="external">lov.okfn.org</a></h2>
+                <img src="pictures/lov-foaf-with-instr.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:90px;"
+                />
+        </section>
+
+        <section class="slide">
+            <h2>Инструменты просмотра/верификации</h2>
+                <img src="pictures/lov-visual.png" class="place m b"
+                     width="85%"
+                     style="margin-bottom:30px;"
+                />
+        </section>
+
+        <section class="slide" id="studprogs">
+            <h2>Аннотация рабочих/учебных программ</h2>
+            <p><strong>Проблемы</strong>:
+                <ul>
+                    <li>каждый год-два Министерство науки и образования РФ
+                        меняет форму рабочих программ дисциплин (переформатирование
+                        документов);
+                    </li>
+                    <li>необходимо верифицировать "охват" компетенций (ОК,ОПК,ПК)
+                        модулями дисциплин, взаимозависимость модулей;
+                    </li>
+                    <li>формально представить все содержание (материал)
+                        дисциплин [на сайте университета].
+                    </li>
+                </ul>
+                <strong>Предлагаемое решение</strong> - разработать подсистему загрузки и аннотации программ;
+                <div class="differ">создать шаблоны генераторов документов из аннотаций.</div>
+                Проект <a class="external" href="https://github.com/eugeneai/icc.studprogs"><code>icc.studprogs</code> </a>.
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Машинное обучение</h2>
+            <p class="description"> В основе решения - алгоритмическое оценивание свойств абзацев текста;
+                разметка шаблонов атрибутами онтологии; машинное обучение.
+            </p>
+            <p style="background:#ABC;.." class="description">
+                <strong><mark class="important">1.</mark>
+                    <mark>Цели</mark> и <mark>задачи</mark>
+                </strong>
+                [<mark><strong>Ж</strong></mark>] <br/>
+                Курс «Сетевые операционные системы» ставит своей целью... $\to$ <code>o:mainAimDefinition</code><br/>
+                . . . . <br/>
+                Освоение программы настоящей дисциплины позволит сформировать у
+                обучающегося <mark>следующие</mark> <mark>компетенции</mark>:<br/>
+                - способностью к профессиональной эксплуатации современного
+                оборудования и приборов (<mark>ОК-8</mark>);
+                $\to$ <code>o:competence $1 [BNode]</code><br />
+                В результате освоения программы дисциплины обучающийся должен
+                <mark><i>знать</i></mark> [<mark><i>Н</i></mark>]:<br/>
+                - основы администрирования ... систем;
+                $\to$ <code>o:knowledge [BNode]</code><br/>
+                . . . . <br/>
+                <mark><i>уметь</i></mark> [<mark><i>Н</i></mark>]:<br/>
+                - производить установку и настройку современных
+                серверных операционных систем;
+                $\to$ <code>o:skill [BNode]</code><br/>
+                . . . . <br/>
+                <strong><mark>8.3.2</mark> Ресурсы сети Интернет:</strong> [<mark><strong>Ж</strong></mark>]<br/>
+                <mark>1.</mark> https://intuit.ru/ $\to$ <code>nfo:url $1</code><br/>
+                <mark>2.</mark> http://www.archlinux.org/ $\to$ <code>nfo:url $1</code><br/>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Аннотация программ в PDF</h2>
+            <p>Постранично выполнять шаги:
+                <ol>
+                    <li>Распознавание таблицы и ее структуры <code>pdf-table-extract</code> $\to (x,y,w,h)$ ;</li>
+                    <li>Экстрагирование текста и атрибутов, исключая $(x,y,w,h)$, $\to$ <code>Список строк</code>;</li>
+                    <li>Удаление разрывов, номеров страниц, колонтитулов;</li>
+                    <li>Удаление переносов в строках <code>pymorphy2</code> (АОТ);</li>
+                    <li>Объединение строк в абзацы <code>link-grammar</code>;</li>
+                    <li>Классификация абзацев $\to$ ABox.</li>
+                </ol>
+                Сгенерировать тексты или шаблоны рабочих, учебных программ, ФОС.
+            </p>
+        </section>
+
+        <section class="slide" id="nlp-morpty">
+            <h2>Анализ форм слова (<code>pymorphy2</code>)</h2>
+            <p>Библиотека <code>pymorphy2</code> развивает базовые алгоритмы AOT
+                морфологического разбора слова в направлении более компактного
+                представления словаря:
+                <div class="differ">
+                    По сравнению с обычным словарем Python структура DAWG (DAFSA)
+                    занимает в 200 раз меньше памяти при сравнимой скорости доступа;
+                    поиск по префиксу; поддерживается режим только-чтение.
+                </div>
+                <div style="width: 73%;margin-top:1em;">
+                    <a href="http://opencorpora.org/" class="external">OpenCorpora</a> (3 тысячи
+                    уникальных парадигм из примерно 400 тысяч лексем) - 15 Мб, 100 тыс. слов/сек.
+                    <div>
+                        DAFSA - Deterministic Acyclic Finite State Automaton;<br/>
+                        DAWG - Directed Acyclic Word Graph.
+                    </div>
+                </div>
+            </p>
+            <object data="pictures/lib/Trie-vs-minimal-acyclic-fa.svg"
+                    type="image/svg+xml"
+                    class="place r b"
+                    width="33%" height="auto"
+            />
+        </section>
+        <section class="slide">
+            <h2>Грамматический разбор предложения</h2>
+            <p>
+                Грамматический разбор предложения реализован при
+                помощи библиотеки <code>link-grammar</code>.<br/>
+                Основные возможности библиотеки:
+                <ul>
+                    <li>Строит варианты связей между словами (двойками);</li>
+                    <li>Задаются различные варианты разбора
+                        (полный, частичный, с разрывами фраз);</li>
+                    <li>Связи можно выгружать и далее анализировать;</li>
+                    <li>Графический вывод в postscript.</li>
+                </ul>
+            </p>
+            <img src="pictures/link-grammar-en-ex.svg" class="place c b img50"
+            style="margin-bottom:30px;"/>
+        </section>
+        <section class="slide">
+            <h2>Пример частичного восстановления текста</h2>
+            <img src="pictures/decode-pdf.png" class="place m c" width="75%"/>
+        </section>
+        <section class="slide">
+            <h2>Оригинал текста</h2>
+            <img src="pictures/origin-pdf.png" class="place m b" width="65%"/>
+        </section>
+        <section class="slide" id="faults">
+            <h2>ЕЯ-интерфейс к базе данных разломов</h2>
+            <p>
+                Проблема в структуре таблицы.
+            </p>
+            <img src="pictures/NLP-fault-db-shot.png" class="place m b" width="95%"/>
+        </section>
+        <section class="slide">
+            <h2>Онтология разломов</h2>
+            <img src="pictures/NLP-fault-tbox-shot.png" class="place l b" width="30%"
+                 style="margin-bottom:30px;margin-left:40px;"/>
+            <img src="pictures/NLP-fault-abox-shot.png" class="place r b" width="45%"
+                 style="margin-bottom:30px"/>
+            <div class="place m c">
+                T-Box&nbsp;&nbsp;&nbsp;&nbsp;A-Box&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </section>
+        <section class="slide">
+            <h2>Встраивание онтологии в интерпретатор ЕЯ</h2>
+            <p>
+                <ol>
+                    <li>Портирована программа
+                        <a href="https://github.com/eugeneai/geobase" class="external">
+                            <code>GEOBASE.PRO</code>
+                        </a> на ISO-Prolog ;</li>
+                    <li>Реализован интерфейс к подсистеме
+                        <a href="http://pengines.swi-prolog.org/apps/scratchpad/index.html"
+                           class="external">
+                            <code>Pengines</code>
+                        </a>;</li>
+                    <li>Добавлена синтаксическая структура, интерпретирующая метоописания
+                        отношений в онтологии.
+                    </li>
+                    <pre class="description">
+                        <code>schema('population','of','state').</code>
+                        <code>schema('area','of','state').</code>
+                        <code>schema('city','<mark>in</mark>','state').</code>
+                        <code>schema('point','in','state').</code>
+                        <code>schema('state','<mark>with</mark>','point').</code>
+                        <code>schema('height','of','point').</code>
+                        <code>schema('name','<mark>of</mark>','river').</code>
+                        <code>schema('name','of','capital').</code>
+                        <code>schema('name','of','city').</code>
+                    </pre>
+                </ol>
+            </p>
+        </section>
+        <section class="slide">
+            <p style="margin-top:-60px;">
+                <pre>
+                    <code>
+schema(Prop, 'of', SubjName):- % Syntax mode
+        <mark>var</mark>(SubjName),
+        geob_prop(Prop,_).
+schema(<mark>Prop</mark>, 'of', SubjName):- % Interpretation mode
+        <mark>nonvar</mark>(SubjName),
+        geob_prop(<mark>Prop, GProp</mark>),
+        geob_ent_class(SubjName, Subj),
+        <b>rdf_reachable</b>(<mark>Subj</mark>, rdfs:subClassOf, <mark>Parent</mark>),
+        rdf(G<mark>Prop</mark>, <mark class="important">rdfs:domain</mark>, Parent),!.
+geob_ent_class(Ent, Class):-
+        sub_atom(Ent,0,1,R,H),
+        sub_atom(Ent,1,R,0,T),
+        string_upper(H,U),
+        atom_concat(U,T,GEnt),
+        <b>geob_class</b>(GEnt, Class).
+                    </code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide">
+            <p style="margin-top:-10px;">
+                <pre>
+                    <code>
+geob_ent(E, <mark>A</mark>):-
+        nonvar(E),
+        geob_ent_class(E,Class),
+        rdf(<mark>A</mark>, rdf:type, Class, geodata).
+geob_prop(Prop, GProp):-
+        <b>rdf_global_id(geob:Prop, GProp)</b>,
+        rdf(GProp,rdf:type,owl:'ObjectProperty'),!.
+geob_class(Class, GClass):-
+        rdf_global_id(geob:Class, GClass),
+        rdf(GClass,rdf:type,owl:'Class'),!.
+                    </code>
+                </pre>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Интерфейс пользоателя</h2>
+            <img src="pictures/Geobase-ui.png" class="place m c" width="90%"
+                 style="margin-bottom:30px"/>
+        </section>
+        <section class="slide">
+            <h2>Анализ пластики рельефа</h2>
+            <img src="pictures/MM-plastics.png" class="place m c" width="40%"
+                 style="margin-bottom:30px"/>
+        </section>
+        <section class="slide">
+            <h2>Проект: "Карта загрязнений о. Ольхон"</h2>
+            <img src="pictures/qgis-planning.png" class="place m b" width="95%"
+                 style="margin-bottom:0px"/>
+        </section>
+        <!--
+        <section class="slide" id="plastics">
+            <h2>Другие задачи</h2>
+            <p>
+                <ul>
+                    <li>Разработка методов анализа пластики рельефа.</li>
+                    <li>Информационное сопровождение проекта по исследованию
+                        загрязнения острова Ольхон.
+                    </li>
+                    <li>
+                        Распознавание патологий работы сердца по кардиограмме.
+                    </li>
+                </ul>
+            </p>
+        </section>
+        -->
+        <section class="slide">
+            <h2>Публикации и доклады в 2016 году</h2>
+            <p class="description">
+                Фактически опубликованные:
+                <ol>
+                    <li>E.Cherkashin, A.Davydov, A.Larionov
+                        <strong>
+                            Positive Constructed Formulas Preprocessing for Automatic Deduction
+                        </strong>
+                        Procs. of 39-th International convention MIPRO, Intelligent Systems (CIS),
+                        May 30 - June 03, 2016, Opatija, Croatia.
+                        pp.&nbsp;<a class="external" href="http://docs.mipro-proceedings.com/proceedings/mipro_2016_proceedings.pdf">1578-1581</a>. (<strong>SCOPUS ?</strong>)
+                    </li>
+                    <li>A.Mikhailov, A.Hmelnov, E.Cherkashin, I.Bychkov
+                        <strong>
+                            Control Flow Graph Visualization in Compiled Software Engineering
+                        </strong>
+                        Procs. of 39-th International convention MIPRO, Intelligent Systems (CIS),
+                        May 30 - June 03, 2016, Opatija, Croatia.
+                        pp.&nbsp;<a class="external" href="http://docs.mipro-proceedings.com/proceedings/mipro_2016_proceedings.pdf">1586-1590</a>. (<strong>SCOPUS ?</strong>)
+                    </li>
+                    <li>Кузьмин С.Б., Невзорова И.В., Черкашин Е.А., Шаманова С.И. <strong>Геоинформационное
+                        картографирование на основе модели пластики рельефа и возможность ее использования
+                        при геоморфологическом анализе </strong>// <a href="http://geosys.ru/index.php/ru/journal.html" class="external">Геоинформатика</a>,
+                        2016. № 2. С. 19-34. (<strong>ВАК</strong>)
+                    </li>
+                </ol>
+                Необходимо опубликовать результаты в одном из журналов
+                <div class="differ">
+                    <a href="http://www.edit.muh.ru/content/mags_dist.htm" class="external">
+                        Дистанционное и виртуальное обучение</a> (ВАК).<br/>
+                    <a href="http://mais-journal.ru/jour" class="external">
+                        Моделирование и анализ информационных систем</a> (МАИС)
+                    (ВАК, SCOPUS).
+                </div>
+            </p>
+        </section>
+        <section class="slide shout">
+            <h2 class="place m c">Спасибо за внимание!</h2>
+        </section>
+        <!--
+        <section class="slide black cover">
+            <h2>Дополнительные материалы</h2>
+
+        </section>
+        <section class="slide black">
+            <h2>Категории, функторы</h2>
+            <p>
+                `x=(-b +- sqrt(b^2 – 4ac))/(2a)`
+            </p>
+            <p>
+                The area of a circle is
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>&#x03C0;</mi>
+                    <mo>&#x2062;</mo>
+                    <msup>
+                        <mi>r</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>.
+            </p>
+            <p>LaTeX Example
+                \(\pi+\psi\) and $\forall x: P(x)\to K(x)$.
+                \[\frac{1}{\sqrt{-1}}\]
+            </p>
+            <p>
+                При условии, что
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>a</mi><mo>&#x2260;</mo><mn>0</mn>
+                </math>,
+                существует два решения
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+                    <mo>+</mo> <mi>b</mi><mi>x</mi>
+                    <mo>+</mo> <mi>c</mi> <mo>=</mo> <mn>0</mn>
+                </math>,
+                которые вычисляются следующим образом:
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    <mi>x</mi><mo>=</mo>
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <mo>&#x2212;</mo>
+                                <mi>b</mi>
+                                <mo>&#x00B1;</mo>
+                                <msqrt>
+                                    <msup><mi>b</mi><mn>2</mn></msup>
+                                    <mo>&#x2212;</mo>
+                                    <mn>4</mn><mi>a</mi><mi>c</mi>
+                                </msqrt>
+                            </mrow>
+                            <mrow> <mn>2</mn><mi>a</mi> </mrow>
+                        </mfrac>
+                    </mrow>
+                    <mtext>.</mtext>
+                </math>
+            </p>
+        </section>
+        -->
+        <p class="badge"><a href="https://github.com/eugeneai/html-presentations">Fork me on Github</a></p>
+        <!--
+             To hide progress bar from entire presentation
+             just remove “progress” element.
+           -->
+        <div class="progress"></div>
+        <script src="node_modules/shower-core/shower.min.js" type="text/javascript"/>
+        <!-- Copyright © 2016 Evgeny Cherkashin, ISDCT SB RAS. -->
+        <!-- Photos by ..... -->
+    </body>
+</html>
