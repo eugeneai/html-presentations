@@ -89,26 +89,50 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	    </section>
 
 	    <section class="slide">
-		    <h2>Shower key features</h2>
+		    <h2>Предыстория</h2>
 		    <ol>
-			    <li>Built on HTML, CSS and vanilla JavaScript</li>
-			    <li>Works in all modern browsers</li>
-			    <li>Themes are separated from engine</li>
-			    <li>Modular and extensible</li>
-			    <li>Fully keyboard accessible</li>
-			    <li>Printable to PDF</li>
+			    <li>1997 - Разработано в PARC, a Xerox Company</li>
+			    <li>2001 - AOP в Java - AspectJ</li>
+			    <li>Python - подмешиавния (mixins)</li>
+			    <li>.NET - Экзотика </li>
+			    <li></li>
+			    <li></li>
 		    </ol>
-		    <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+		    <p class="note">AOP - Aspect-oriented programming.</p>
 	    </section>
 
 	    <section class="slide">
-		    <h2>Plain text on your slides</h2>
-		    <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+		    <h2>Аспекты</h2>
+		    <p>Аспекты дают средства разделения cruss-cutting concerns, лежащие в основе ядра системы в виде отдельных модулей.  <br/>
+            Пример - ведения журнала. Вместо того, чтобы внедрять код журналирования (logging) в программу, этот код внедряется в заданные точки "снаружи".<br/>
+            Технология направлена на уменьшение повторений и boilerplate в проектах.<br/>
+
+            </p>
 	    </section>
 
 	    <section class="slide">
-		    <h2>Two columns if you like</h2>
-		    <p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+		    <h2>Определения</h2>
+		    <p>
+                <strong>Cross-cutting concern</strong> - куски кода, которые используются в большом количестве мест системы. Например, печать значения переменной в журнал отладки. <br/>
+                <strong>Функциональные требования</strong> - требования, имеющие ценность в проекте, например, бизнес-логика, интерфейс пользователя, хранилище данных.
+                <br/>
+                <strong>Нефункциональные требования</strong> не имеют прямого отношения к решаемой задаче, но тоже важны: журналирование, обеспечение безопасности, производительность системы, транзакции и т.п.
+                <br/>
+                <strong>Рекомендация (advice)</strong> - конкретный код, который выполняет заданную работу, например, выполнить журналирование переменной.
+                <br/>
+                <strong>Точка соединения (join point)</strong> - точка между операторами в коде программы или этапами исполнения некоторой процедуры.
+                Пример: "перед запуском svc.SaveName()".
+                <br/>
+                <strong>(pointcut)</strong> - множество точек соединения, определенное перечислением или ограничением; место, куда встраивается advice.
+                Примеры: "перед запуском любого метода", "перед запуском методов заданного класса",
+                "перед всеми методами класса в пространстве имен MyService за исключением приватных методов и метода DeleteName.".
+                <br/>
+                <strong>(weawing)</strong> - процесс
+                <br/>
+                <strong>Спутывание (tangling)</strong> - "стиль" программирования, где несколько функций реализуются в одном коде одновременно.
+                <br/>
+                <strong>(scattering)</strong> - распределение кода функции между отдельными процедурами (C-c,C-v).
+            </p>
 	    </section>
 
 	    <section class="slide">
