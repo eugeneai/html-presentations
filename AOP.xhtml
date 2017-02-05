@@ -42,7 +42,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
          .description dd {
              margin-left: 0px;
          }
-        </style>    </head>
+        </style>
+
+    </head>
     <body class="shower list">
 
         <header class="caption">
@@ -89,24 +91,72 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	    </section>
 
 	    <section class="slide">
-		    <h2>Предыстория</h2>
-		    <ol>
-			    <li>1997 - Разработано в PARC, a Xerox Company</li>
-			    <li>2001 - AOP в Java - AspectJ</li>
-			    <li>Python - подмешиавния (mixins)</li>
-			    <li>.NET - Экзотика </li>
-			    <li></li>
-			    <li></li>
-		    </ol>
-		    <p class="note">AOP - Aspect-oriented programming.</p>
+		    <h2>Фрагмент кода C# (1)</h2>
+            <pre>
+                <code>public class InvoiceService {
+    . . . . .
+	void CreateInvoice(ShoppingCart cart) {
+		<mark>_transaction.Start();</mark>
+		_invoicedb.CreateNewInvoice();
+		foreach(item in cart)
+			_invoicedb.AddItem(item);
+			_invoicedb.ProcessSalesTax();
+			<mark>_transaction.Commit();</mark>
+		}
+}
+                </code>
+            </pre>
 	    </section>
 
 	    <section class="slide">
-		    <h2>Аспекты</h2>
-		    <p>Аспекты дают средства разделения cruss-cutting concerns, лежащие в основе ядра системы в виде отдельных модулей.  <br/>
-            Пример - ведения журнала. Вместо того, чтобы внедрять код журналирования (logging) в программу, этот код внедряется в заданные точки "снаружи".<br/>
-            Технология направлена на уменьшение повторений и boilerplate в проектах.<br/>
+		    <h2>Фрагмент кода C# (2)</h2>
+            <pre>
+                <code>		<mark>_transaction.Start();</mark>
+		_invoicedb.CreateNewInvoice();
+		<mark>_logger.LogInfo("Started Sales Tax Processing");</mark>
+		foreach(item in cart)
+			_invoicedb.AddItem(item);
+			_invoicedb.ProcessSalesTax();
+			<mark>_transaction.Commit();</mark>
+		<mark>_logger.LogInfo("Finised Sales Tax Processing");</mark>
+                </code>
+            </pre>
+	    </section>
 
+	    <section class="slide">
+		    <h2>Фрагмент кода C# (3)</h2>
+            <pre>
+                <code>		<mark>_userPermissions.CheckFor("tax-processing");</mark>
+		<mark>_transaction.Start();</mark>
+		_invoicedb.CreateNewInvoice();
+		<mark>_logger.LogInfo("Started Sales Tax Processing");</mark>
+		foreach(item in cart)
+			_invoicedb.AddItem(item);
+			_invoicedb.ProcessSalesTax();
+			<mark>_transaction.Commit();</mark>
+		<mark>_logger.LogInfo("Finised Sales Tax Processing");</mark>
+                </code>
+            </pre>
+	    </section>
+
+	    <section class="slide">
+		    <h2>История технологии</h2>
+            <p>
+		        <ol>
+			        <li>1997 - Разработано в PARC, a Xerox Company;</li>
+			        <li>2001 - AOP в Java - AspectJ;</li>
+			        <li>2003 - <strong>Распространение в другие системы программирования</strong>.</li>
+                </ol>
+                <strong>Технологии - конкуренты</strong>
+                <ol>
+			        <li>Dependency Inversion - обратные зависимости;</li>
+			        <li>Python, D ... - декораторы;</li>
+			        <li>SmallTalk, LogTalk - перехват сообщений.</li>
+		        </ol>
+            </p>
+		    <p class="note">AOP - Aspect-oriented programming.
+                <br/>
+                PARC - Palo Alto Research Center <a href="https://www.parc.com/" class="external">WEB-site</a>.
             </p>
 	    </section>
 
@@ -114,36 +164,106 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 		    <h2>Определения</h2>
 		    <p>
                 <strong>Функциональные требования</strong> - требования, "имеющие ценность в проекте", т.е. функции разрабатываемой системы, решающие конкретную поставленную задачу обработки информации.
-                <br/>Примеры - модель предметной области (бизнес-логика), представление объектов в интерфейсе пользователя, хранение объектов в хранилище данных.
+                <!-- <br/>Примеры - модель предметной области (бизнес-логика), представление объектов в интерфейсе пользователя, хранение объектов в хранилище данных. -->
                 <br/>
                 <strong>Нефункциональные требования</strong> не имеют прямого отношения к решаемой задаче, но должны быть выполнены, чтобы обеспечить корректное функционирование системы, создать среду для ее сопровождения.
-                <br/>Примеры - журналирование, обеспечение безопасности, производительность системы, транзакции и т.п.
-                <br/>
+                <!-- <br/>Примеры - журналирование, обеспечение безопасности, производительность системы, транзакции и т.п.
+                   --><br/>
+                <img src="./pictures/requirements-matrix.svg" class="place c b" style="margin-bottom:30px;"/>
             </p>
+        </section>
+        <section class="slide">
+            <h2>Примеры нефункциональных задач</h2>
+            <ul class="double">
+                <li>Cинхронизация;</li>
+                <li>Проверка ограничений;</li>
+                <li>Отлов ошибок и их коррекция;</li>
+                <li>Зависимости между функциями;</li>
+                <li>Управление памятью;</li>
+                <li>Проверка структур данных;</li>
+                <li>Хранение объектов;</li>
+                <li>Обработка транзакций;</li>
+                <li>Перевод сообщений, локализация;</li>
+                <li>Защита информации;</li>
+                <li>Кэширование данных;</li>
+                <li>Ведение журнала событий;</li>
+                <li>Мониторинг событий/состояния;</li>
+                <li>Правила предметной области (bussiness logics);</li>
+                <li>Миграция кода;</li>
+                <li>Оптимизация алгоритмов;</li>
+                <li class="differ">Контрольные точки;</li>
+                <li class="differ">Точки сохранения/восстановления состояния.</li>
+            </ul>
         </section>
 	    <section class="slide">
 		    <h2>Определения</h2>
 		    <p>
-                <strong>Сквозные задачи (cross-cutting concern)</strong> - однотипные задачи, решаемые в самых разных местах программной системы. Например, печать сообщений в журнал отладки.
+                <strong>Сквозные задачи (cross-cutting concern)</strong> - однотипные задачи, решаемые в разных частях программной системы.
+            </p>
+            <p class="double">
+                <strong>Спутывание (tangling, переплетение)</strong> - "стиль" программирования, где несколько функций реализуются в одном коде одновременно.
                 <br/>
-                <strong>Рекомендация (advice)</strong> - конкретный код, который выполняет заданную работу в "нужном месте", например, выполнить журналирование переменной.
+                <strong>Разбрасывание (scattering)</strong> - распределение решения задачи между отдельными процедурами (C-c,C-v).
                 <br/>
-                <strong>Точка соединения (join point)</strong> - точка между операторами в коде программы или этапами исполнения некоторой процедуры.
-                Пример: "перед запуском svc.SaveName()".
                 <br/>
-                <strong>Срез (pointcut)</strong> - множество точек соединения, определенное перечислением или ограничением; место, куда встраивается advice.
-                Примеры: "перед запуском любого метода", "перед запуском методов заданного класса",
-                "перед всеми методами класса в пространстве имен MyService за исключением приватных методов и метода DeleteName.".
                 <br/>
-                <strong>Спутывание (tangling,переплетение)</strong> - "стиль" программирования, где несколько функций реализуются в одном коде одновременно.
                 <br/>
-                <strong>Сплетение (weawing)</strong> - процесс порождения спутанного кода из рекомендаций.
                 <br/>
-                <strong>Внедрение (introduction)</strong> - Изменение структуры класса или иерархии наследования с целью реализации аспекта.
                 <br/>
-                <strong>Разбрасывание (scattering)</strong> - распределение кода функции между отдельными процедурами (C-c,C-v).
+                <br/>
                 <br/>
             </p>
+            <div class="place r b" style="margin-bottom:50px;">
+                <img src="./pictures/cross-cutting-concerns-bad.svg"/>
+                <!-- <img src="./pictures/cross-cutting-concerns.svg"/> -->
+            </div>
+        </section>
+
+	    <section class="slide">
+		    <h2>Определения</h2>
+            <p>
+                <strong>Сплетение (weawing)</strong> - процесс порождения спутанного кода в соответствии с <span class="differ">рекомендациями</span>.
+                <br/>
+                <strong>Внедрение (introduction)</strong> - Изменение структуры класса или иерархии наследования с целью реализации <span class="differ">аспекта</span>.
+                <br/>
+            </p>
+            <div class="place c b" style="margin-bottom:50px;">
+                <img src="./pictures/cross-cutting-concerns-good.svg"/>
+            </div>
+        </section>
+
+	    <section class="slide">
+		    <h2>Определения</h2>
+		    <p class="double">
+                <strong>Точка соединения (join point)</strong> - точка между операторами в коде программы или этапами исполнения некоторой процедуры.
+                <br/>
+                <strong>Срез (pointcut)</strong> - множество точек соединения, определенное перечислением или ограничением; место, куда встраивается advice.
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </p>
+            <img src="./pictures/join-point-block-diagram.svg" class="place r b" style="width: 50%; height: auto; margin-bottom:70px;"/>
+        </section>
+
+	    <section class="slide">
+		    <h2>Определения</h2>
+		    <p class="double">
+                <strong>Рекомендация (advice)</strong> - конкретный код, который выполняет заданную работу в заданном месте.
+                <br/>
+                <strong>Аспект (aspect)</strong> - экземпляр программного кода для конкретной <span class="differ">точки соединения</span> (<span class="differ">среза</span>).
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </p>
+            <img src="./pictures/join-point-block-diagram-around.svg" class="place r b" style="width: 50%; height: auto; margin-bottom:30px;"/>
 	    </section>
 
 	    <section class="slide">
