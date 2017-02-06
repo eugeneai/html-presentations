@@ -405,6 +405,48 @@ def secret_page():
 	    </section>
 
 	    <section class="slide">
+		    <h2>Сателлит 3 - Перехват методов (LagTalk)</h2>
+            <pre>
+                <code>:- object(<mark>tracer</mark>,
+    implements(monitoring)). % Протокол обработчиков сообщений.
+    <mark>before</mark>(Object, Message, Sender) :-
+        write('call: '), writeq(Object), write(' &lt;-- '),
+        writeq(Message), write(' from '), writeq(Sender), nl.
+    <mark>after</mark>(Object, Message, Sender) :-
+        write('exit: '), writeq(Object), write(' &lt;-- '),
+         writeq(Message), write(' from '), writeq(Sender), nl.
+:- end_object.
+                </code>
+            </pre>
+	    </section>
+
+	    <section class="slide">
+		    <h2>Сателлит 3 - Перехват методов (LagTalk)</h2>
+            <pre>
+                <code class="double">:- object(any).
+    :- public(msg/1) .
+    :- public(gsm/1) .
+    <mark>msg(ok)</mark>.
+    <mark>gsm(no)</mark>.
+:- end_object.
+
+| ?- define_events(_, _, _, _,
+       <mark>tracer</mark>).
+yes
+
+| ?- <mark>any::bar(X)</mark>.
+
+call: any &lt;-- <mark>msg(X)</mark>
+ from user
+exit: any &lt;-- <mark>msg(ok)</mark>
+ from user
+X = ok
+yes
+                </code>
+            </pre>
+	    </section>
+
+	    <section class="slide">
 		    <h2 class="shout shrink">You can even shout this way</h2>
 	    </section>
 
