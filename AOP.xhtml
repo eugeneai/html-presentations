@@ -139,6 +139,23 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </pre>
 	    </section>
 
+        <section class="slide">
+            <h2>Проблемы сквозного кода</h2>
+            <p class="place c">
+                <ul>
+                    <li>Программа сложна для понимания
+                        <ul>
+                            <li>Запутанность кода,</li>
+                            <li>Рассредоточение кода,</li>
+                            <li>Плохое прослеживание назначения;</li>
+                        </ul>
+                    </li>
+                    <li>Непригодность для повторного использования;</li>
+                    <li>Большая вероятность ошибок;</li>
+                    <li>Трудоемкость сопровождения.</li>
+                </ul>
+            </p>
+        </section>
 	    <section class="slide">
 		    <h2>История технологии</h2>
             <p>
@@ -267,19 +284,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	    </section>
 
 	    <section class="slide">
-		    <h2>All kind of lists</h2>
-		    <ol>
-			    <li>Simple lists are marked with bullets</li>
-			    <li>Ordered lists begin with a number</li>
-			    <li>You can even nest lists one inside another
-				    <ul>
-					    <li>Or mix their types</li>
-					    <li>But do not go too far</li>
-					    <li>Otherwise audience will be bored</li>
-				    </ul>
-			    </li>
-			    <li>Look, seven rows exactly!</li>
-		    </ol>
+		    <h2>Пример аспекта AspectJ - журналирование</h2>
+		    <pre>
+                <code>public <markп>aspect</mark> AutoLog {
+  <mark>pointcut pubMethods(): execution(public * org.cactus..*(..));</mark>
+  <mark>pointcut logObjectCalls(): execution(* Logger.*(..));</mark>
+  <mark>pointcut loggableCalls(): pubMethods() &amp;&amp; !logObjectCalls()</mark>
+  before(): <mark>loggableCalls()</mark> {
+    Logger.entry(thisJoinPoint.getSignature().toString()); }
+  after(): <mark>loggableCalls()</mark> {
+    Logger.exit(thisJoinPoint.getSignature().toString()); }
+}</code>
+		    </pre>
 	    </section>
         <section>
             <h2></h2>
