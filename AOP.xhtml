@@ -407,7 +407,7 @@ def secret_page():
         -->
 
 	    <section class="slide">
-		    <h2>Перехват сообщений (LagTalk)</h2>
+		    <h2>Перехват сообщений (LogTalk)</h2>
             <pre>
                 <code>:- object(<mark>tracer</mark>,
     implements(monitoring)). % Протокол обработчиков сообщений.
@@ -436,7 +436,7 @@ def secret_page():
        <mark>tracer</mark>).
 yes
 
-| ?- <mark>any::bar(X)</mark>.
+| ?- <mark>any::msg(X)</mark>.
 
 call: any &lt;-- <mark>msg(X)</mark>
  from user
