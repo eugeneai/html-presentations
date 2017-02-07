@@ -164,15 +164,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 			        <li>2001 - AOP в Java - AspectJ;</li>
 			        <li>2003 - <strong>Распространение в другие системы программирования</strong>.</li>
                 </ol>
-                <strong>Технологии - сателлиты</strong>
+                <strong>Другие технологии</strong>
                 <ol>
 			        <li>Dependency Inversion - обратные зависимости;</li>
 			        <li>Python, D ... - декораторы;</li>
-			        <li>SmallTalk, LogTalk - перехват сообщений.</li>
+			        <li>LogTalk - перехват сообщений;</li>
+			        <li>Model Driven Architecture - разработка ПО, управляемая моделированием.</li>
 		        </ol>
             </p>
 		    <p class="note">AOP - Aspect-oriented programming.
-                <br/>
                 PARC - Palo Alto Research Center <a href="https://www.parc.com/" class="external">WEB-site</a>.
             </p>
 	    </section>
@@ -191,8 +191,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Примеры нефункциональных задач</h2>
-            <ul class="double">
-                <li>Cинхронизация;</li>
+            <ul class="double" style="left-margin: 20px;">
+                <li>Синхронизация;</li>
                 <li>Проверка ограничений;</li>
                 <li>Отлов ошибок и их коррекция;</li>
                 <li>Зависимости между функциями;</li>
@@ -311,15 +311,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <pre>
             <code>void <mark>around(): call(public void Hello.say())</mark> {
 	if (Math.random() > .5) {
-		<mark>proceed();</mark>     //go ahead with the method call
+		<mark>proceed();</mark>     // запуск метода
 	} else {
-		System.out.println("Fate is not on your side.");
+		System.out.println("В этот раз не повезло.");
 	}}</code>
         </pre>
         </section>
 
 	    <section class="slide">
-		    <h2>Сателлит 1 - Инверсия зависимости (DI)</h2>
+		    <h2>Инверсия зависимости (DI)</h2>
             <pre>
                 <code>public class InvoiceService {
     . . . . . .
@@ -336,7 +336,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	    </section>
 
         <section class="slide">
-            <h2>Сателлит 2 - Декораторы</h2>
+            <h2>Декораторы (Адаптер интерфейса)</h2>
             <pre>
                 <code>public class TransactionDecorator: <mark>IInvoiceData</mark> {
     <mark>IInvoiceData</mark> <mark class="important">_realService</mark>;
@@ -381,7 +381,7 @@ def secret_page():
 	    </section>
 
 	    <section class="slide">
-		    <h2>Декораторы - Lisp</h2>
+		    <h2>Декораторы в Lisp</h2>
             <pre>
                 <code>(defun <mark>attributes</mark> (keywords <mark>function</mark>)
   (loop for (key value) in keywords
@@ -396,6 +396,7 @@ def secret_page():
             </pre>
 	    </section>
 
+        <!--
 	    <section class="slide">
 		    <h2>Сателлит 3 - Перехват методов (SmallTalk)</h2>
             <pre>
@@ -403,9 +404,10 @@ def secret_page():
                 </code>
             </pre>
 	    </section>
+        -->
 
 	    <section class="slide">
-		    <h2>Сателлит 3 - Перехват методов (LagTalk)</h2>
+		    <h2>Перехват сообщений (LagTalk)</h2>
             <pre>
                 <code>:- object(<mark>tracer</mark>,
     implements(monitoring)). % Протокол обработчиков сообщений.
@@ -421,7 +423,7 @@ def secret_page():
 	    </section>
 
 	    <section class="slide">
-		    <h2>Сателлит 3 - Перехват методов (LagTalk)</h2>
+		    <h2>Перехват сообщений (LagTalk)</h2>
             <pre>
                 <code class="double">:- object(any).
     :- public(msg/1) .
@@ -446,43 +448,45 @@ yes
             </pre>
 	    </section>
 
-	    <section class="slide">
-		    <h2 class="shout shrink">You can even shout this way</h2>
-	    </section>
+        <section class="slide">
+            <h2>Model Driven Architecture</h2>
+            <p class="place c m">
+                <img src="./pictures/MDA-origin.svg"/>
+            </p>
+        </section>
 
-	    <section class="slide">
-		    <h2>Inner navigation</h2>
-		    <ol>
-			    <li>Lets you reveal list items one by one</li>
-			    <li class="next">To keep some key points</li>
-			    <li class="next">In secret from audience</li>
-			    <li class="next">But it will work only once</li>
-			    <li class="next">Nobody wants to see the same joke twice</li>
-		    </ol>
-	    </section>
+        <section class="slide">
+            <h2>MDA</h2>
+            <p class="place c m">
+                <img src="./pictures/MDA-extended.svg"/>
+            </p>
+        </section>
 
-	    <section class="slide grid">
-		    <h2>All nicely aligned to grid</h2>
-	    </section>
+        <section class="slide">
+            <h2>Что посмотреть?</h2>
+            <p>
+                <ol>
+                    <li>Функциональное программирование на Lisp/Scheme, ML, Haskell, Julia;</li>
+                    <li>Объектно-ориентированное программирование (ООП), C++, Object Pascal, SmallTalk;</li>
+                    <li>Язык программирования Python 2.7/3.6;</li>
+                    <li>AOP для .NET, AspectJ и др. языков программирования;</li>
+                    <li>Компонентные архитектуры и компонентное программирование, COM+, Mozilla XPCOM, Java Beans, Delphi (Lazarus), Zope component architecture;</li>
+                    <li>Пролог и LogTalk;</li>
+                    <li>Стоит ознакомиться с D, Go, Rust.</li>
+                </ol>
+            </p>
+        </section>
 
-	    <section class="slide" id="see-more">
-		    <h2 class="shout">
-			    <img src="pictures/logo.svg" alt="Shower logo"/>
-			    <a href="https://github.com/shower/shower">See more on GitHub</a>
-		    </h2>
-		    <style>
-			 #see-more h2 {
-				 font-size:100px
-			 }
-			 #see-more img {
-				 width:0.72em;
-				 height:0.72em;
-			 }
-		    </style>
-	    </section>
+        <section class="slide">
+            <p class="place c m">
+                <div>Спасибо за проявленный интерес!</div>
+                <img src="./pictures/static_qr_code_without_logo.jpg"/>
+                https://github.com/eugeneai/html-presentations
+            </p>
+        </section>
 
 	    <footer class="badge">
-		    <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+		    <a href="https://github.com/eugeneai/html-presentations">Клонируй на GitHub</a>
 	    </footer>
 
 	    <div class="progress"></div>
