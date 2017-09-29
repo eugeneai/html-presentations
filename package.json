@@ -1,7 +1,7 @@
 {
   "name": "shower",
   "description": "Shower HTML presentation engine",
-  "version": "2.1.9",
+  "version": "2.3.0",
   "author": {
     "name": "Vadim Makeev",
     "url": "http://pepelsbey.net/"
@@ -28,25 +28,26 @@
   ],
   "dependencies": {
     "shower-core": "^2.1.0",
-    "shower-material": "^1.0.11",
-    "shower-ribbon": "^2.0.10",
-    "mathjax":"^2.7.0"
+    "shower-material": "^1.1.0",
+    "shower-ribbon": "^2.1.0"
+    "mathjax":"^2.7.2"
   },
   "devDependencies": {
-    "del": "^2.2.1",
+    "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
     "fs": "0.0.2",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-rsync": "0.0.7",
+    "gulp-replace": "^0.6.1",
+    "gulp-rsync": "0.0.8",
     "gulp-zip": "^4.0.0",
     "merge-stream": "^1.0.0",
     "path-exists-cli": "^1.0.0",
-    "run-sequence": "^1.2.2",
-    "shower-core": "^2.0.8"
+    "run-sequence": "^2.1.0"
   },
   "scripts": {
+    "start": "gulp",
     "prepare": "gulp prepare",
     "archive": "gulp archive",
     "publish": "gulp publish",

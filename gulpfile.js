@@ -8,6 +8,7 @@ const rsync = require('gulp-rsync');
 const sequence = require('run-sequence');
 const zip = require('gulp-zip');
 const pages = require('gulp-gh-pages');
+const browserSync = require('browser-sync').create();
 
 gulp.task('prepare', () => {
 
@@ -20,7 +21,8 @@ gulp.task('prepare', () => {
 			'!LICENSE.md',
 			'!README.md',
 			'!gulpfile.js',
-			'!package.json'
+			'!package.json',
+			'!package-lock.json'
 		])
 		.pipe(replace(
 			/(<link rel="stylesheet" href=")(node_modules\/shower-)([^\/]*)\/(.*\.css">)/g,
@@ -100,4 +102,18 @@ gulp.task('clean', () => {
 	return del('prepared/**');
 });
 
-gulp.task('default', ['prepare']);
+gulp.task('serve', () => {
+	browserSync.init({
+		ui: false,
+		notify: false,
+		port: 3000,
+		server: {
+			baseDir: '.'
+		}
+	});
+	gulp.watch('index.html').on('change', () => {
+    	browserSync.reload();
+	});
+});
+
+gulp.task('default', ['serve']);
