@@ -29,7 +29,7 @@
   "dependencies": {
     "shower-core": "^2.1.0",
     "shower-material": "^1.1.0",
-    "shower-ribbon": "^2.1.0"
+    "shower-ribbon": "^2.1.0",
     "mathjax":"^2.7.2"
   },
   "devDependencies": {
