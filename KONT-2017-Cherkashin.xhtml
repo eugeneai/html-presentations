@@ -96,9 +96,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     <li>Информация доступна в Интернете, причем по лицензии открытых данных;</li>
                     <li>Представлена в машиночитаемом виде (в Excel а не в виде картинки);</li>
                     <li>Использован открытый формат (CSV вместо Excel);</li>
-                    <li>Формат базируется на рекомендациях W3C, так, чтобы можно было сослаться на эти данные;</li>
+                    <li>Формат базируется на рекомендациях W3C, так, чтобы можно было сослаться на эти данные (RDF, SPARQL);</li>
                     <li>Из публикуемых данных сделаны ссылки на внешние объекты, чтобы обеспечить контекст.</li>
                 </ol>
+                Приложения получают не просто данные, а отношения между объектами.
             </p>
         </section>
         <section class="slide">
@@ -117,8 +118,46 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </p>
             </div>
         </section>
-        <section class="slide" id="categories">
-          <h2>Категории</h2>
+        <section class="slide" id="document-representation">
+            <h2>Представление документа</h2>
+            <pre>
+                <code>. . . . . . .
+&lt;body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# ... foaf: http://xmlns.com/foaf/0.1/ imei: imei.html# course: https://irnok.net/college/plan/01.03.02-16-1234-2461_1%D0%BA_PB-SM.plm.xml.xlsx-%D0%911.%D0%92.%D0%94%D0%92.3.1.html#" resource="#post" typeof="schema:CreativeWork sioc:Post prov:Entity"&gt;
+&lt;!-- Панель управления приложением --&gt;
+                    &lt;main lang="ru" resource="#annotation" typeof="oa:Annotation"
+                          id="main-document-container"&gt;
+                        &lt;div property="oa:hasTarget"
+                             resource="#course-work-program"&gt;&lt;/div&gt;
+                        &lt;article property="oa:hasBody"
+                                 typeof="schema:Article foaf:Document curr:WorkingProgram"
+                                 resource="#course-work-program" id="main-document"&gt;
+                            &lt;div taa:content="imei:title-page"&gt;&lt;/div&gt; &lt;!--Титульный лист..
+                            &lt;div taa:content="imei:neg-UMK"&gt;&lt;/div&gt; &lt;!--Лист согласования..
+                            &lt;section id="contents" class="break-after"&gt;
+                                &lt;h2 class="nocount c"&gt;Содержание&lt;/h2&gt;
+                                &lt;div id="tableOfContents"&gt;&lt;/div&gt;
+                            &lt;/section&gt;
+                            &lt;section id="course-description" resource="#description"
+                                     property="schema:hasPart" typeof="schema:CreativeWork"&gt;
+                                &lt;div property="schema:hasPart" resource="#purpose"
+                                     typeof="dc:Text cnt:ContentAsText" &gt;
+                                    &lt;div property="cnt:chars" datatype="xsd:string"&gt;
+                                        &lt;h2 property="dc:title" datatype="xsd:string"&gt;Цели и задачи дисциплины (модуля)&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Целю преподавания дисциплины "Технологии программирования" является освоение ...&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                . . . . . . . .
+                                &lt;div property="schema:hasPart" typeof="dc:Text
+                                               cnt:ContentAsText" resource="#volume"&gt;
+                                    &lt;div property="cnt:chars" datatype="xsd:string"&gt;
+                                        &lt;h2 property="dc:title" datatype="xsd:string"&gt; Объем дисциплины (модуля) и виды учебной работы (разделяется по формам обучения)&lt;/h2&gt;
+                                        &lt;div taa:content="course:time-differ"&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                . . . . . . . .
+                </code>
+            </pre>
           <p>
               Категория $C$ — класс объектов $Ob_C$ такой, что
               <ul>
