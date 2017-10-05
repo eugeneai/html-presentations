@@ -27,10 +27,10 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
         <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
         <!--
-             <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
+             <link rel="stylesheet" href="eugeneai/local.css"/>
            -->
-        <link rel="stylesheet" href="eugeneai/local.css"/>
         <style>
          .differ {
              color:blue;
@@ -51,6 +51,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
          .slide a {
              color: brown;
 
+         }
+         div.horz img {
+             /* display:inline-block; */
+             display: block;
+             float: left;
+             margin-right: 5px;
          }
         </style>
     </head>
@@ -107,7 +113,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         </section>
         <section class="slide">
             <h2>Цели и задачи</h2>
-            <div class="place l c" style="margin-left:100px;">
                 <p>
                     Средствами LOD + HTML5 в документе формируется логическая разметка, HTML5 + CSS + алгоритмы - различные варианты визуального представления.</p>
                 <p>
@@ -115,11 +120,19 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     <ul>
                         <li>позволяющее создавать документы на рабочей станции пользователя,  загружая и преобразуя фрагменты текста из других документов;</li>
                         <li>реализующее различные представления (View): форма ввода и др.</li>
-                        <li>... Формализованная обработка, хранение, запросы (Семантический Веб).</li>
+                        <!-- <li>... Формализованная обработка, хранение, запросы (Семантический Веб).</li> -->
                         <li>Интеграция с другими приложениями обработки LOD.</li>
                     </ul>
                 </p>
-            </div>
+        </section>
+        <section class="slide" >
+            <h2>Рабочая программа дисциплины</h2>
+            <img class="place l b"
+                 style="margin-left: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-title.jpg" />
+            <img class="place r b"
+                 style="margin-right: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-agreement.jpg" />
         </section>
         <section class="slide" id="document-representation-prefixes">
             <h2>Представление документа (Префиксы)</h2>
@@ -254,9 +267,9 @@ course: https://irnok.net/college/plan/01.03.02-16-1234-2461_1%D0%BA_PB-SM.plm.x
         </section>
         <section class="slide" id="ontotechsupport">
             <h2>Архитектура системы</h2>
-            <object data="pictures/architecture.svg" type="image/svg+xml"
-                    class="place c m" width="90%" height="auto"
-                    style="margin-bottom:30px;margin-right:10px;"/>
+            <img src="pictures/architecture.svg" type="image/svg+xml"
+                 class="place c m" width="90%" height="auto"
+                 />
 
         </section>
         <section class="slide" id="ontoserver">
