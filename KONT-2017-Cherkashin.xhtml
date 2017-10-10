@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+<!ENTITY PRESTITLE "Использование технологий Linked Open Data при подготовке и публикации текстовых документов">
+]
+>
+<!--
+-->
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>&PRESTITLE;</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=792, user-scalable=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({
+             "tex2jax": {inlineMath: [['$','$'], ['\\(','\\)']]},
+             "CommonHTML": {
+                 "preferredFont": "STIX"
+             }
+         });
+        </script>
+        <script type="text/javascript" async="async"
+                src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
+        <!--
+             <link rel="stylesheet" href="eugeneai/local.css"/>
+           -->
+        <style>
+         .differ {
+             color:blue;
+         }
+         .description {
+             line-height: 120%;
+         }
+         .description dt {
+             margin-top: 1em;
+             margin-left:-50px;
+         }
+         .description dd {
+             margin-left: 0px;
+         }
+         .caption a {
+             color: brown;
+         }
+         .slide a {
+             color: brown;
+         }
+         div.horz img {
+             /* display:inline-block; */
+             display: block;
+             float: left;
+             margin-right: 5px;
+         }
+        </style>
+    </head>
+    <body class="shower list">
+        <header class="caption">
+            <h1>&PRESTITLE;</h1>
+            <p>
+                к.т.н. Черкашин Е.А.,
+                к.т.н. Шигаров А.О.,</p>
+            <p>
+                к.ф.-м.н. Орлова И.В.,
+                к.б.н. Михайлов И.С.<br/>
+                ИДСТУ СО РАН, ИРНИТУ, ЛИН СО РАН, ИНЦ СО РАН
+            </p>
+            <p>
+                Презентация подготовлена при помощи системы
+                <a href="https://github.com/shower/shower">Shower</a>
+                (<a href="https://github.com/shower/shower/wiki">Страница
+                    Wiki</a>).
+            </p>
+        </header>
+        <section class="slide cover" id="cover">
+            <h2>&PRESTITLE;</h2>
+            <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
+            <p class="place b r"
+               style="margin-right:20px;"
+            >
+                к.т.н. <a href="mailto:eugeneai@irnok.net">
+                Черкашин Е.А.
+                </a><br/>
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35" class="external" >
+                    Комплексных информационных систем</a><br/>
+                ИДСТУ СО РАН<br/>
+                к.т.н. Шигаров А.О.,
+                к.ф.-м.н. Орлова И.В.,<br/>
+                к.б.н. Михайлов И.С.<br/>
+                ИДСТУ СО РАН, ИРНИТУ, <br/>
+                ЛИН СО РАН, ИНЦ СО РАН
+            </p>
+            <!-- <img src="pictures/cover.jpg" alt=""> -->
+            <!--
+                 To apply styles to the certain slides
+                 set slide ID to get needed elements
+               -->
+        </section>
+        <section class="slide" >
+            <h2>Открытые связанные данные (LOD)</h2>
+            <p>
+                <ol>
+                    <li>Информация доступна в Интернете, причем по лицензии открытых данных;</li>
+                    <li>Представлена в машиночитаемом виде (в Excel а не в виде картинки);</li>
+                    <li>Использован открытый формат (CSV вместо Excel);</li>
+                    <li>Формат базируется на рекомендациях W3C, так, чтобы можно было сослаться на эти данные (RDF, SPARQL);</li>
+                    <li>Из публикуемых данных сделаны ссылки на внешние объекты, чтобы обеспечить контекст.</li>
+                </ol>
+                Приложения получают не просто данные, а отношения между объектами.
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Цели и задачи</h2>
+                <p>
+                    Средствами LOD + HTML5 в документе формируется логическая разметка, HTML5 + CSS + алгоритмы - различные варианты визуального представления.</p>
+                <p>
+                    Цель - разработка ПО для подготовки и верстки документов, размеченных согласно LOD и порождаемых при помощи LOD,
+                    <ul>
+                        <li>позволяющее создавать документы на рабочей станции пользователя,  загружая и преобразуя фрагменты текста из других документов;</li>
+                        <li>реализующее различные представления (View): форма ввода и др.</li>
+                        <!-- <li>... Формализованная обработка, хранение, запросы (Семантический Веб).</li> -->
+                        <li>Интеграция с другими приложениями обработки LOD.</li>
+                    </ul>
+                </p>
+        </section>
+        <section class="slide" >
+            <h2>Рабочая программа дисциплины</h2>
+            <img class="place l b"
+                 style="margin-left: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-title.jpg" />
+            <img class="place r b"
+                 style="margin-right: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-agreement.jpg" />
+        </section>
+        <section class="slide" id="document-representation-prefixes">
+            <h2>Представление документа (Префиксы)</h2>
+            <pre>
+                <code>. . . . . . .
+&lt;body <mark>prefix="rdf: http://www.w3.org/1999/02/
+22-rdf-syntax-ns# ... foaf: http://xmlns.com/foaf/0.1/
+</mark><mark class="important">imei: imei.html#</mark>
+<mark class="important">course: https://irnok.net/college/plan/
+01.03.02-16-1234-2461_1%D0%BA_PB-SM.plm.xml.xlsx
+-%D0%911.%D0%92.%D0%94%D0%92.3.1.html#</mark>"
+  resource="#post"
+  typeof="schema:CreativeWork sioc:Post prov:Entity"&gt;
+&lt;!-- Панель управления приложением --&gt;
+                </code>
+            </pre>
+        </section>
+        <section class="slide" id="dokiely-example">
+            <h2 style="margin-top:-1em;">Редактор Dokie.ly <br/>C.Capadisly,..., T.-B. Lee, 2017</h2>
+            <img class="place b m" src="pictures/shots/dokiely-rww.jpg"
+                 style="margin-bottom:40px" />
+        </section>
+        <section class="slide">
+            <h2>Сандарт Open Annotation</h2>
+            <!--
+                 <p>Подход реализует стандарт <a href="http://www.openannotation.org/spec/core/#Introduction" class="external">Open Annotation</a> (oa:).
+                 </p>
+            -->
+            <img src="pictures/lib/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png"
+                 class="place m b" width="80%" style="margin-bottom:50px;"/>
+        </section>
+        <section class="slide" id="document-representation-main">
+            <h2>Аннотация документа</h2>
+            <pre>
+                <code>. . &lt;body&gt; . . . .
+&lt;main lang="ru" <mark>resource="#annotation"
+    typeof="oa:Annotation"
+    id="main-document-container"</mark>&gt;
+  &lt;div <mark>property="oa:hasTarget"</mark>
+          <mark class="important">resource="#course-work-program"</mark>&gt;&lt;/div&gt;
+  &lt;article <mark>property="oa:hasBody"</mark>
+      typeof="schema:Article foaf:Document
+              curr:WorkingProgram"
+      <mark class="important">resource="#course-work-program"</mark> id="main-document"&gt;
+                </code>
+            </pre>
+        </section>
+        <section class="slide" id="document-representation-includes">
+            <h2>Титульный лист и лист согласования</h2>
+            <pre>
+                <code>. . &lt;main&gt; . . . . .
+&lt;!--Титульный лист --&gt;
+&lt;div <mark>taa:content="</mark><mark class="important">imei:title-page</mark>"&gt;&lt;/div&gt;
+&lt;!--Лист согласования --&gt;
+&lt;div <mark>taa:content="</mark><mark class="important">imei:neg-UMK</mark>"&gt;&lt;/div&gt;
+&lt;section id="contents" class="break-after"&gt;
+&lt;h2 class="nocount c"&gt;Содержание&lt;/h2&gt;
+&lt;div id="tableOfContents"&gt;&lt;/div&gt;
+&lt;/section&gt;
+                </code>
+            </pre>
+        </section>
+        <section class="slide">
+            <h2>Титульные листы<br/><code>imei.html</code></h2>
+            <img src="pictures/shots/template-title-pages.jpg"
+                 class="place t r"
+                 width="55%"
+                 style="margin-right:20px;"
+            />
+        </section>
+        <section class="slide" id="document-representation-formal-part">
+            <h2>Формальная часть</h2>
+            <pre>
+                <code>. . . . . . .
+&lt;<mark>section id="course-description" </mark><mark class="important">resource="#description"</mark>
+<mark>property="schema:hasPart" typeof="schema:CreativeWork"</mark>&gt;
+  &lt;div <mark>property="schema:hasPart" </mark><mark class="important">resource="#purpose"</mark>
+     <mark>typeof="dc:Text cnt:ContentAsText"</mark> &gt;
+  &lt;div <mark>property="cnt:chars" datatype="xsd:string"</mark>&gt;
+  &lt;h2 <mark class="important">property="dc:title"</mark> <mark>datatype="xsd:string"</mark>&gt;
+    Цели и задачи дисциплины (модуля)&lt;/h2&gt;
+&lt;p&gt;Целю преподавания дисциплины "Технологии программирования"
+   является освоение ...&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+        </section>
+        <section class="slide" id="document-representation-volume">
+            <h2>Объем дисциплины по формам обучения</h2>
+            <pre>
+                <code>. . . &lt;section&gt; . . . .
+&lt;div property="schema:hasPart" typeof="dc:Text
+    cnt:ContentAsText" resource="#volume"&gt;
+  &lt;div property="cnt:chars" datatype="xsd:string"&gt;
+    &lt;h2 property="dc:title" datatype="xsd:string"&gt;
+        Объем дисциплины (модуля) и виды учебной работы
+        (разделяется по формам обучения)&lt;/h2&gt;
+    &lt;div <mark>taa:content="</mark><mark class="important">course:time-differ</mark>"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+. . . . . . . .
+                </code>
+            </pre>
+        </section>
+        <section class="slide">
+            <h2 style="margin-top:-1em;">Данные курса</h2>
+            <img src="pictures/shots/template-courses.jpg"
+                 class="place b r"
+                 width="70%"
+            />
+        </section>
+        <section class="slide" id="work-program-visual-result">
+            <h2>Верстка</h2>
+            <img src="pictures/shots/work-program-volume.jpg"
+                 class="place t r"
+                 width="70%"
+                 style="margin-right:20px;" />
+        </section>
+        <section class="slide" >
+            <h2>Использованные онтологии</h2>
+            <p>
+                <strong>Friend-of-a-friend (foaf)</strong> - информацию об агентах: физических,  юридических, программных.<br/>
+                <strong>Provenence (prov)</strong> - происхождение информации: связь между документами. <br/>
+                <strong>Dublin Core (dc)</strong> - разметка редактируемой аннотации.<br/>
+                <strong>DBPedia resource (dbr)</strong> – ссылки на экземпляры объектов и классы.<br/>
+                <strong>Schema.org (schema)</strong> - объекты, распознаваемые поисковыми агентами Google, Yandex, Yahoo и др. (часть-целое).<br/>
+                <strong>The Bibliographic Ontology (bibo)</strong> - разметка списка литературы.
+            </p>
+        </section>
+        <section class="slide" id="legal-example-definition-part">
+            <h2>Подготовка документов</h2>
+            <pre>
+                <code>&lt;p&gt;Я, &lt;span <mark>property="fibol:designatesSignatory bibo:owner"</mark>
+    typeof="fibol:Signatory foaf:Person dbr:Principal"
+    <mark>resource="#principal"</mark>&gt;
+  &lt;span property="foaf:name" id="signatory-name"
+    <mark class="important">datatype="xsd:string"</mark> class="edit"&gt;
+       Иванова Елена Викторовна&lt;/span&gt;,
+  &lt;span <mark>property="adoc:hasPassport"
+      resource="#signatory-sertification"
+      typeof="acrt:Certification"</mark>&gt;
+    &lt;span <mark>property="acrt:qualification"
+      resource="dbr:Passport"</mark>&gt;паспорт&lt;/span&gt;…
+                </code>
+            </pre>
+        </section>
+        <section class="slide" id="legal-example-consequences">
+            <h2>Согласование слов</h2>
+            <pre>
+                <code>. . . . &lt;section&gt; . . .
+...проживающ&lt;span <mark>class="disp" id="signatory-name"
+  data-m="ий" data-f="ая"</mark>&gt;__&lt;/span&gt;
+по адресу:...Подпись &lt;span <mark>class="disp string"
+  id="signatory-name" data-case="gent"</mark>&gt;__&lt;/span&gt;
+удостоверяю...
+                </code>
+            </pre>
+        </section>
+        <section class="slide" id="view-form">
+            <h2>Доверенность в виде формы</h2>
+            <img class="place c b"
+                 style="margin-bottom:40px;"
+                 src="pictures/shots/attorney-edit.jpg"
+            />
+        </section>
+        <section class="slide">
+            <h2>Верстка доверенности</h2>
+            <img class="place c b"
+                 style="margin-bottom:80px;"
+                 src="pictures/shots/attorney-render.jpg"
+            />
+        </section>
+        <section class="slide" id="ontotechsupport">
+            <h2>Архитектура системы</h2>
+            <img src="pictures/architecture-ext.svg" type="image/svg+xml"
+                 class="place c b" width="90%" height="auto"
+                 style="margin-bottom:110px;"
+            />
+            <!-- <img src="pictures/peixe-architecture-ru-1.svg" class="place r b" width="65%"/> -->
+
+        </section>
+        <section class="slide" id="ontoserver">
+            <h2>Реализация</h2>
+            <p>
+                <ol>
+                    <li>Разметка документа - RDFa, TTL для невидимой части;</li>
+                    <li>JavaScript + библиотека элементов управления;</li>
+                    <li>Компонентная библиотека ZCA для Python (сервер);</li>
+                    <li>Библиотека pymorphy2 + собственная библиотека для склонения имен;</li>
+                    <li>Elasticsearch, Sphinxsearch - системы полнотекстового индексирования;</li>
+                    <li>ClioPatria - Онтологический сервер со встроенной машиной вывода Prolog.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Области применения и дальнейшее развитие</h2>
+            <p>
+                <ul>
+                    <li>Автоматизация подготовки документов;</li>
+                    <ul>
+                        <li>Редактор, учитывающий контекст;</li>
+                        <li>Экспорт в офисные форматы;</li>
+                        <li>Самоорганизующийся документооборот;</li>
+                    </ul>
+                    <li>Исходные данные для электронных курсов;</li>
+                    <ul>
+                        <li>Импорт в системы автоматизации обучения;</li>
+                    </ul>
+                    <li>Автоматизация разметки</li>
+                    <ul>
+                        <li>Входящей документации (ФОС);</li>
+                        <li>Существующих учебный программ.</li>
+                    </ul>
+                </ul>
+            </p>
+        </section>
+        <section class="slide">
+            <h2>Заключение</h2>
+            <p class="description">
+                <ul>
+                    <li>Разработан инструментарий для автоматизации верстки
+                        документов на основе разметки LOD;</li>
+                    <li>Реализованы интерпретаторы логической разметки
+                        на стороне клиента (в WEB-браузере);</li>
+                    <li>Представлены примеры документов.</li>
+                </ul>
+            </p>
+            <p>
+                Использование LOD в некоторой степени позволяет экономить время, затрачиваемое на проектирование структуры базы данных для хранилищ документов.
+            </p>
+            <p>Задача актуальна в среде малого бизнеса, где нет устоявшихся информационных потоков и связей между документами, что, в основном, обусловлено динамичностью самого бизнеса.
+            </p>
+        </section>
+        <section class="slide shout">
+            <h2 class="place m c">Вопросы</h2>
+            <div class="place c b "
+               style="margin-bottom:100px;"
+            ><a
+                 href="https://github.com/isu-enterprise/isu.aquarium"
+             >https://github.com/isu-enterprise/isu.aquarium</a>
+            </div>
+        </section>
+        <p class="badge"><a href="https://github.com/eugeneai/html-presentations">Fork me on Github</a></p>
+        <!--
+             To hide progress bar from entire presentation
+             just remove “progress” element.
+           -->
+        <div class="progress"></div>
+        <script src="node_modules/shower-core/shower.min.js" type="text/javascript"/>
+        <!-- Copyright © 2017 Evgeny Cherkashin, ISDCT SB RAS. -->
+        <!-- Photos by ..... -->
+    </body>
+</html>
