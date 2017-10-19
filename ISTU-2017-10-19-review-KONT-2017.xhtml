@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+[
+<!ENTITY PRESTITLE "Обзор докладов на VI Всероссийской конференции ЗОНТ-2017, 2-6 ноября 2017, Новосибирск, Институт Математики им. С. Л. Соболева СО РАН">
+]
+>
+<!--
+-->
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>&PRESTITLE;</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=792, user-scalable=no"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({
+             "tex2jax": {inlineMath: [['$','$'], ['\\(','\\)']]},
+             "CommonHTML": {
+                 "preferredFont": "STIX"
+             }
+         });
+        </script>
+        <script type="text/javascript" async="async"
+                src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css"/>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
+        <!--
+             <link rel="stylesheet" href="eugeneai/local.css"/>
+           -->
+        <style>
+         .differ {
+             color:blue;
+         }
+         .description {
+             line-height: 120%;
+         }
+         .description dt {
+             margin-top: 1em;
+             margin-left:-50px;
+         }
+         .description dd {
+             margin-left: 0px;
+         }
+         .caption a {
+             color: brown;
+         }
+         .slide a {
+             color: brown;
+         }
+         div.horz img {
+             /* display:inline-block; */
+             display: block;
+             float: left;
+             margin-right: 5px;
+         }
+         p.author {
+             color: #006699;
+             font-weight: bold;
+         }
+        </style>
+    </head>
+    <body class="shower list">
+        <header class="caption">
+            <h1>&PRESTITLE;</h1>
+            <p>
+                к.т.н. Черкашин Е.А.,
+            </p>
+            <p>
+                Презентация подготовлена при помощи системы
+                <a href="https://github.com/shower/shower">Shower</a>
+                (<a href="https://github.com/shower/shower/wiki">Страница
+                    Wiki</a>).
+            </p>
+        </header>
+        <section class="slide cover" id="cover">
+            <h2>&PRESTITLE;</h2>
+            <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
+            <p>
+
+            </p>
+            <p class="place b r"
+               style="margin-right:20px;"
+            >
+                к.т.н. <a href="mailto:eugeneai@irnok.net">
+                Черкашин Е.А.
+                </a><br/>
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35" class="external" >
+                    Комплексных информационных систем</a><br/>
+                ИДСТУ СО РАН
+            </p>
+            <!-- <img src="pictures/cover.jpg" alt=""> -->
+            <!--
+                 To apply styles to the certain slides
+                 set slide ID to get needed elements
+            -->
+        </section>
+        <section class="slide" >
+            <h2>Общая информация</h2>
+            <p>Конференция посвящена математическим методам представления данных, извлечения знаний и построения теорий предметных областей, анализу формальных понятий, методам извлечения информации из текстов естественного языка.
+                <ol>
+                    <li>Доклады опубликованы в сборнике РИНЦ.</li>
+                    <li>На конференции функционировала одна секция.</li>
+                    <li>Зарегистрировано 108 участников.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Общая информация</h2>
+            <p>
+                Тематика Конференции отражает основные стадии процесса познания:
+                <div>
+                    - <strong>Обнаружение закономерностей и извлечение знаний,</strong> скрытых в структурированных и неструктурированных данных. Машинное обучение. Распознавание образов. Прогнозирование. Индуктивный вывод.
+                    <br/>
+                    - <strong>Систематизация знаний.</strong> Инженерия знаний. Управление знаниями. Разработка онтологий предметных областей: технологии создания и применения онтологий. <br/>
+                    - <strong>Построение теорий предметных областей.</strong> Анализ формальных понятий. Логическая семантика естественного языка. Нечеткие логики.
+                </div>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2 class="place c m">Пленарные доклады</h2>
+        </section>
+        <section class="slide" >
+            <h2>Тезаурус
+                RuWordNet:
+                структура
+                и
+                современное
+                состояние</h2>
+            <p class="author">Лукашевич Наталья Валентиновна</p>
+            <p>
+                <ol>
+                    <li>Русский тезаурус - это прежде всего онтология;</li>
+                    <li>Альтернативные попытки создания тезауруса: <a href="https://nlpub.ru/%D0%A0%D1%83%D0%A2%D0%B5%D0%B7" class="external">РуТез</a>; </li>
+                    <li>Свой тезаурус конвертируют в в форму, совместимую с WordNet;</li>
+                    <li>Используется в Yandex, Rambler и т.д.;</li>
+                    <li>Доступно по запросу <a href="http://ruwordnet.ru/ru/" class="external">http://ruwordnet.ru/ru/</a>, <a class="external" href="http://labinform.ru/pub/ruwordnet/index.htm">labinform.ru/..</a>.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>PolarDB
+                –
+                новая
+                платформа
+                для
+                хранения
+                и
+                обработки
+                больших
+                структурированных
+                данных</h2>
+            <p class="author">Марчук
+                Александр
+                Гурьевич</p>
+            <p>
+                <ol>
+                    <li>NoSQL-База данных, разрабатывается открыто на <a class="external" href="https://github.com/agmarchuk/Polar">GitHub</a>;</li>
+                    <li>Высокопроизводительная, документ-ориентированная; </li>
+                    <li>Необходимо описывать структуры хранимых документов (C#);</li>
+                    <li>Реализация - .NET;</li>
+                    <li>Использует Linq;</li>
+                    <li>Коммерческое сопровождение не обеспечивают, не рекомендуют.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Узорные
+                структуры
+                как
+                математическая
+                основа
+                методов
+                обнаружения
+                знаний
+                в
+                предметных
+                областях</h2>
+            <p class="author">Кузнецов
+                Сергей
+                Олегович</p>
+            <p>
+                <ol>
+                    <li>Развитие метода Анализа формального контекста (Formal Context Analysis);</li>
+                    <li>Метод применен к анализу текстов из Интернета;</li>
+                    <li>Разработан метод связывания предложений по местоимениям;</li>
+                    <li>Результат представлен в виде древовидных структур;</li>
+                    <li>Полученные деревья анализируются на предмет изъятия содержательной информации.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Информационная
+                система
+                для
+                принятия
+                управленческих
+                решений
+                в
+                сфере
+                науки
+                и
+                образования</h2>
+            <p class="author">Васенин
+                Валерий
+                Александрович</p>
+            <p>
+                <ol>
+                    <li>Представлена информация о ИС "Истина" (МГУ);</li>
+                    <li>Основная задача - наукометрика (внутренняя, для менеджмента научного персонала); Проблемы:</li>
+                    <ol>
+                        <li>Импорт и распознавание данных о публикациях (BibTeX, e-library, Scopus, WoS, Текст);</li>
+                        <li>Идентификация автора;</li>
+                        <li>Основной критерий - точность представления информации;</li>
+                        <li>Просят внедрить ...</li>
+                    </ol>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Компьютерная
+                системная
+                биология
+                и
+                биомедицина:
+                текст
+                майнинг,
+                онтологии
+                и
+                базы
+                знаний</h2>
+            <p class="author">Ак. Колчанов Николай Александрович и др.</p>
+            <p>
+                <ol>
+                    <li>Анализ текстов статей, опубликованных в рецензируемых журналах;</li>
+                    <li>Восстановление текста из PDF;</li>
+                    <li>Анализ текста, извлечение отношений;</li>
+                    <li>Анализ отношений по заданным шаблонам;</li>
+                    <li>Используется онтология в качестве модели для анализа;</li>
+                    <li>Полученные результаты - знания (интерпретируемые данные);</li>
+                    <li>Приложения полученных знаний для анализа влияния лекарств на больных диабетом.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Теоретико-модельные
+                методы
+                извлечения
+                и
+                порождения
+                знаний
+                для
+                построения
+                онтологических
+                моделей</h2>
+            <p class="author">Пальчунов
+                Дмитрий
+                Евгеньевич</p>
+            <p>
+                <ol>
+                    <li>Рассмотрена задача разработки онтологии рекомендательной системы для потребителей сотовой связи;</li>
+                    <li>Использован метод Анализа формального контекста для построения системы знаний;</li>
+                    <li>Система знаний представлена в виде иерархии по отношению к уровню общности понятия.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section class="slide" >
+            <h2 class="place c m">Секционные доклады</h2>
+        </section>
+
+        <section class="slide" >
+            <h2>BIG DATA
+                в
+                поисковиках
+                и
+                лингво-частотный
+                анализ
+                языков
+                по
+                Улитке
+                инноваций-путь
+                моделирования
+                смыслов.</h2>
+            <p class="author">Бадулин
+                Николай
+                Александрович</p>
+            <p>
+                <ol>
+                    <li>Инвестирует в проекты;</li>
+                    <li>Фактически рассмотрел спиральную модель развития Стартапа и процесса руководства людьми;</li>
+                    <li>Рассмотрены проблемы, возникающие на разных этапах;</li>
+                    <li>К.Маркс, Ф.Энгельс, В.Ленин не были упомянуты.</li>
+                    <li>Какое отношение к теме доклада ?</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Доказательное
+                построение,
+                верификация
+                и
+                синтез
+                предикатных
+                программ</h2>
+            <p class="author">Шелехов
+                Владимир
+                Иванович</p>
+            <p>
+                <ol>
+                    <li>Формализованное представление программ в предикативном языке;</li>
+                    <li>Методология доказательства правильности программ базируется на АДТ, но АДТ требуемого качества не реализован;</li>
+                    <li>Интересовался продвинутыми методами АДТ.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Мультиагентный
+                подход
+                к
+                разрешению
+                кореференции
+                при
+                извлечении
+                информации
+                из
+                текстов
+                на
+                основе
+                онтологии</h2>
+            <p class="author">Сидорова
+                Е.
+                А.,
+                Гаранина
+                Н.
+                О.,
+                Серый
+                А.
+                С. </p>
+            <p>
+                <ol>
+                    <li>Основная задача - определить, какие понятия обозначают одно и то же в процессе анализа текстов;</li>
+                    <li>...</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Новый
+                алгоритм
+                классификации
+                потоковых
+                данных</h2>
+            <p class="author">Анфилофьев
+                Александр
+                Евгеньевич</p>
+            <p>
+                <ol>
+                    <li>Решается задача классификации данных, приходящих в потоке (нельзя вернуться и снова что-то анализировать);</li>
+                    <li>В процессе решения задачи система классификации дополнительно настраивается.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Онтология
+                научной
+                графики
+                в
+                молекулярной
+                спектроскопии</h2>
+            <p class="author">Привезенцев
+                Алексей
+                Иванович</p>
+            <p>
+                <ol>
+                    <li>Импорт данных в виде в т.ч. сканированных графиков;</li>
+                    <li>Распознаются отдельные тренды (линии);</li>
+                    <li>Вместе с Фазлиевым А.З. заинтересованы в сотрудничестве с нами.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Опыт
+                преподавания
+                принципов
+                методов
+                и
+                средств
+                Semantic Web</h2>
+            <p class="author">Апанович
+                Зинаида
+                Владимировна</p>
+            <p>
+                <ol>
+                    <li>Рассмотрен магистерский курс по использованию формализованных онтологий для представления информации;</li>
+                    <li>Рассмотрены вопросы использования Protege и др. сред проектирования онтологий;</li>
+                    <li>Приведены примеры лабораторных работ: Интерпретация отношений, Построение запросов SPARQL.</li>
+                </ol>
+            </p>
+        </section>
+        <section class="slide" >
+            <h2>Использование
+                онтологий
+                при
+                разработке
+                продукционных
+                экспертных
+                систем</h2>
+            <p class="author">Дородных Никита Олегович, Юрин Александр Юрьевич</p>
+            <p>
+                <ol>
+                    <li>Рассмотрена задача создания графического веб-интерфейса для разработки экспертных систем;</li>
+                    <li>В качестве методологии использования порождающего программирования использован подход, сходный с MDA;</li>
+                    <li>На ранних этапах конструирования базы знаний используются онтологии.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section class="slide cover" id="cover">
+            <h2>Использование технологий Linked Open Data при подготовке и публикации текстовых документов</h2>
+            <!-- <img src="pictures/cover.jpg" alt="" class="cover"> -->
+            <p class="place b r"
+               style="margin-right:20px;"
+            >
+                к.т.н. <a href="mailto:eugeneai@irnok.net">
+                Черкашин Е.А.
+                </a><br/>
+                лаб.&nbsp;4.1.&nbsp;<a href="http://www.idstu.irk.ru/ru/orgsection/35" class="external" >
+                    Комплексных информационных систем</a><br/>
+                ИДСТУ СО РАН<br/>
+                к.т.н. Шигаров А.О.,
+                к.ф.-м.н. Орлова И.В.,<br/>
+                к.б.н. Михайлов И.С.<br/>
+                ИДСТУ СО РАН, ИРНИТУ, <br/>
+                ЛИН СО РАН, ИНЦ СО РАН
+            </p>
+            <!-- <img src="pictures/cover.jpg" alt=""> -->
+            <!--
+                 To apply styles to the certain slides
+                 set slide ID to get needed elements
+            -->
+        </section>
+
+        <section class="slide">
+            <h2>Цели и задачи</h2>
+                <p>
+                    Средствами LOD + HTML5 в документе формируется логическая разметка, HTML5 + CSS + алгоритмы - различные варианты визуального представления.</p>
+                <p>
+                    Цель - разработка ПО для подготовки и верстки документов, размеченных согласно LOD и порождаемых при помощи LOD,
+                    <ul>
+                        <li>позволяющее создавать документы на рабочей станции пользователя,  загружая и преобразуя фрагменты текста из других документов;</li>
+                        <li>реализующее различные представления (View): форма ввода и др.</li>
+                        <!-- <li>... Формализованная обработка, хранение, запросы (Семантический Веб).</li> -->
+                        <li>Интеграция с другими приложениями обработки LOD.</li>
+                    </ul>
+                </p>
+        </section>
+        <section class="slide" >
+            <h2>Рабочая программа дисциплины</h2>
+            <img class="place l b"
+                 style="margin-left: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-title.jpg" />
+            <img class="place r b"
+                 style="margin-right: 40px; margin-bottom: 20px;"
+                 src="pictures/shots/work-program-agreement.jpg" />
+        </section>
+
+        <section class="slide" id="dokiely-example">
+            <h2 style="margin-top:-1em;">Редактор Dokie.ly <br/>C.Capadisly,..., T.-B. Lee, 2017</h2>
+            <img class="place b m" src="pictures/shots/dokiely-rww.jpg"
+                 style="margin-bottom:40px" />
+        </section>
+
+        <section class="slide">
+            <h2>Сандарт Open Annotation</h2>
+            <!--
+                 <p>Подход реализует стандарт <a href="http://www.openannotation.org/spec/core/#Introduction" class="external">Open Annotation</a> (oa:).
+                 </p>
+            -->
+            <img src="pictures/lib/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png"
+                 class="place m b" width="80%" style="margin-bottom:50px;"/>
+        </section>
+        <section class="slide" id="document-representation-main">
+            <h2>Аннотация документа</h2>
+            <pre>
+                <code>. . &lt;body&gt; . . . .
+&lt;main lang="ru" <mark>resource="#annotation"
+    typeof="oa:Annotation"
+    id="main-document-container"</mark>&gt;
+  &lt;div <mark>property="oa:hasTarget"</mark>
+          <mark class="important">resource="#course-work-program"</mark>&gt;&lt;/div&gt;
+  &lt;article <mark>property="oa:hasBody"</mark>
+      typeof="schema:Article foaf:Document
+              curr:WorkingProgram"
+      <mark class="important">resource="#course-work-program"</mark> id="main-document"&gt;
+                </code>
+            </pre>
+        </section>
+
+
+
+
+        <section class="slide">
+            <h2 style="margin-top:-1em;">Данные курса</h2>
+            <img src="pictures/shots/template-courses.jpg"
+                 class="place b r"
+                 width="70%"
+            />
+        </section>
+        <section class="slide" id="work-program-visual-result">
+            <h2>Верстка</h2>
+            <img src="pictures/shots/work-program-volume.jpg"
+                 class="place t r"
+                 width="70%"
+                 style="margin-right:20px;" />
+        </section>
+        <section class="slide" >
+            <h2>Использованные онтологии</h2>
+            <p>
+                <strong>Friend-of-a-friend (foaf)</strong> - информацию об агентах: физических,  юридических, программных.<br/>
+                <strong>Provenence (prov)</strong> - происхождение информации: связь между документами. <br/>
+                <strong>Dublin Core (dc)</strong> - разметка редактируемой аннотации.<br/>
+                <strong>DBPedia resource (dbr)</strong> – ссылки на экземпляры объектов и классы.<br/>
+                <strong>Schema.org (schema)</strong> - объекты, распознаваемые поисковыми агентами Google, Yandex, Yahoo и др. (часть-целое).<br/>
+                <strong>The Bibliographic Ontology (bibo)</strong> - разметка списка литературы.
+            </p>
+        </section>
+
+
+
+
+        <section class="slide" id="ontotechsupport">
+            <h2>Архитектура системы</h2>
+            <img src="pictures/architecture-ext.svg" type="image/svg+xml"
+                 class="place c b" width="90%" height="auto"
+                 style="margin-bottom:110px;"
+            />
+            <!-- <img src="pictures/peixe-architecture-ru-1.svg" class="place r b" width="65%"/> -->
+
+        </section>
+
+        <section class="slide">
+            <h2>Области применения и дальнейшее развитие</h2>
+            <p>
+                <ul>
+                    <li>Автоматизация подготовки документов;</li>
+                    <ul>
+                        <li>Редактор, учитывающий контекст;</li>
+                        <li>Экспорт в офисные форматы;</li>
+                        <li>Самоорганизующийся документооборот;</li>
+                    </ul>
+                    <li>Исходные данные для электронных курсов;</li>
+                    <ul>
+                        <li>Импорт в системы автоматизации обучения;</li>
+                    </ul>
+                    <li>Автоматизация разметки</li>
+                    <ul>
+                        <li>Входящей документации (ФОС);</li>
+                        <li>Существующих учебный программ.</li>
+                    </ul>
+                </ul>
+            </p>
+        </section>
+
+        <section class="slide shout">
+            <h2 class="place m c">Вопросы</h2>
+            <div class="place c b "
+               style="margin-bottom:100px;"
+            ><a
+                 href="https://github.com/isu-enterprise/isu.aquarium"
+             >https://github.com/isu-enterprise/isu.aquarium</a>
+            </div>
+        </section>
+        <p class="badge"><a href="https://github.com/eugeneai/html-presentations">Fork me on Github</a></p>
+        <!--
+             To hide progress bar from entire presentation
+             just remove “progress” element.
+           -->
+        <div class="progress"></div>
+        <script src="node_modules/shower-core/shower.min.js" type="text/javascript"/>
+        <!-- Copyright © 2017 Evgeny Cherkashin, ISDCT SB RAS. -->
+        <!-- Photos by ..... -->
+    </body>
+</html>
