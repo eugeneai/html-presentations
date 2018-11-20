@@ -24,7 +24,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <script type="text/javascript" async="async"
                 src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
-        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-4x3.css"/>
+        <link rel="stylesheet" href="node_modules/shower-ribbon/styles/styles.css"/>
         <link rel="stylesheet" href="eugeneai/local.css"/>
         <style>
          .differ {
@@ -43,6 +43,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
          .description dd {
              margin-left: 0px;
          }
+         .shower {
+             --slide-ratio: calc(4 / 3);
+         }
         </style>
     </head>
     <body class="shower list">
@@ -58,7 +61,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     Wiki</a>).
             </p>
         </header>
-        <section class="slide black cover" id="cover">
+        <section class="slide black" id="cover">
             <h2>&PRESTITLE;</h2>
             <p class="center">
                 Автоматизация планирования эксперимента в РФА при помощи экспертной системы
